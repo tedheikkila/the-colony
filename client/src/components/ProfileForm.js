@@ -5,11 +5,8 @@ import { updateUser } from '../utils/API';
 import Auth from '../utils/auth';
 
 const UpdateProfileForm = () => {
-  // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-  // set state for form validation
+  const [userFormData, setUserFormData] = useState({ username: '', planet: '', city: '', age: '', weight:'', gender: '' });
   const [validated] = useState(false);
-  // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
@@ -20,7 +17,6 @@ const UpdateProfileForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -31,7 +27,7 @@ const UpdateProfileForm = () => {
       const response = await updateUser(userFormData);
 
       if (!response.ok) {
-        throw new Error('something went wrong!');
+        throw new Error('Something went wrong');
       }
 
       const { token, user } = await response.json();
@@ -43,19 +39,18 @@ const UpdateProfileForm = () => {
     }
 
     setUserFormData({
-      username: '',
-      email: '',
-      password: '',
+        username: '', planet: '', city: '', 
+        age: '', weight:'', gender: '' 
     });
   };
 
   return (
     <>
-      {/* This is needed for the validation functionality above */}
+      {/* this is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
+          Something went wrong with your update
         </Alert>
 
         <Form.Group>
@@ -68,36 +63,70 @@ const UpdateProfileForm = () => {
             value={userFormData.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>Username is required</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Label htmlFor='planet'>Planet</Form.Label>
           <Form.Control
-            type='email'
-            placeholder='Your email address'
-            name='email'
+            type='planet'
+            placeholder='Your planet'
+            name='planet'
             onChange={handleInputChange}
-            value={userFormData.email}
+            value={userFormData.planet}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>Planet is required</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label htmlFor='city'>City</Form.Label>
           <Form.Control
-            type='password'
-            placeholder='Your password'
-            name='password'
+            type='city'
+            placeholder='Your city'
+            name='city'
             onChange={handleInputChange}
-            value={userFormData.password}
+            value={userFormData.city}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
         </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='age'>Age</Form.Label>
+          <Form.Control
+            type='age'
+            placeholder='Your age (optional)'
+            name='age'
+            onChange={handleInputChange}
+            value={userFormData.age}
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='weight'>Weight</Form.Label>
+          <Form.Control
+            type='weight'
+            placeholder='Your weight (optional)'
+            name='weight'
+            onChange={handleInputChange}
+            value={userFormData.weight}
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='gender'>Gender</Form.Label>
+          <Form.Control
+            type='gender'
+            placeholder='Your gender (optional)'
+            name='gender'
+            onChange={handleInputChange}
+            value={userFormData.gender}
+          />
+        </Form.Group>
+
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.username && userFormData.planet && userFormData.city)}
           type='submit'
           variant='success'>
           Submit
