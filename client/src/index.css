@@ -5,11 +5,11 @@
   --three: #c1440e;
   --four: #e77d11;
   --five: #0e0e49;
-  --six: lightskyblue
+  --six: #9ce0fc
 }
 
 #root {
-  background-color: var(--one);
+  background-color: var(--six)
 }
 
 /* nav bar */
@@ -18,9 +18,15 @@
   padding: 30px
 }
 
-.t-nav-item {
-  margin: 2%;
+#t-nav-link {
+  color: black
 }
+
+#t-nav-link:hover {
+  text-decoration: underline;
+}
+
+
 
 /* footer */
 .t-colony-footer {
@@ -28,11 +34,19 @@
   margin-top: 100px;
 }
 
-#t-nav-icon {
+.t-footer-item {
+  margin: 1%;
+}
+
+.t-footer-copyright {
+  margin: 2%;
+}
+
+#t-footer-icon {
   border-radius: 50px;
 }
 
-#t-nav-icon:hover {
+#t-footer-icon:hover {
   box-shadow: 5px 5px 30px 5px var(--one)
 }
 

@@ -14,25 +14,25 @@ const AppNavbar = () => {
     <>
       <Navbar expand='lg' className="t-nav-bar">
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
+          <Navbar.Brand as={Link} to='/' id="t-nav-link">
             the Colony
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
-            <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/feed'>
+            <Nav className='ml-auto' id="t-navbar-item">
+              <Nav.Link as={Link} to='/feed' id="t-nav-link">
                 Feed
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/userprofile'>
+                  <Nav.Link as={Link} to='/userprofile' id="t-nav-link">
                     Profile
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Log Out</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Log In/Sign Up</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)} id="t-nav-link">Log In/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
