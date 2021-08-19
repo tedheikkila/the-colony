@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import userProfile from './pages/userprofile';
+import roverProfile from './pages/rover';
+import feed from './pages/feed';
 
 function App() {
   return (
@@ -10,10 +14,11 @@ function App() {
       <>
         <Navbar />
         <Switch>
-          <Route exact path='/' component={SearchBooks} />
-          <Route exact path='/saved' component={SavedBooks} />
-          <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+          <Route exact path='/' component={roverProfile} />
+          <Route exact path='/user' component={userProfile} />
+          <Route exact path='feed' component={feed} />
         </Switch>
+        <Footer />
       </>
     </Router>
   );
