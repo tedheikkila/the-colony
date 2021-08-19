@@ -70,7 +70,7 @@ const UpdateProfileForm = () => {
         <Form.Group>
           <Form.Label htmlFor='planet'>Planet</Form.Label>
           <Form.Control
-            type='planet'
+            type='text'
             placeholder='Your planet'
             name='planet'
             onChange={handleInputChange}
@@ -83,7 +83,7 @@ const UpdateProfileForm = () => {
         <Form.Group>
           <Form.Label htmlFor='city'>City</Form.Label>
           <Form.Control
-            type='city'
+            type='text'
             placeholder='Your city'
             name='city'
             onChange={handleInputChange}
@@ -96,7 +96,7 @@ const UpdateProfileForm = () => {
         <Form.Group>
           <Form.Label htmlFor='age'>Age</Form.Label>
           <Form.Control
-            type='age'
+            type='text'
             placeholder='Your age (optional)'
             name='age'
             onChange={handleInputChange}
@@ -107,7 +107,7 @@ const UpdateProfileForm = () => {
         <Form.Group>
           <Form.Label htmlFor='weight'>Weight</Form.Label>
           <Form.Control
-            type='weight'
+            type='text'
             placeholder='Your weight (optional)'
             name='weight'
             onChange={handleInputChange}
@@ -118,7 +118,7 @@ const UpdateProfileForm = () => {
         <Form.Group>
           <Form.Label htmlFor='gender'>Gender</Form.Label>
           <Form.Control
-            type='gender'
+            type='text'
             placeholder='Your gender (optional)'
             name='gender'
             onChange={handleInputChange}

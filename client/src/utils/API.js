@@ -1,3 +1,5 @@
+import { UpdateProfileForm } from '../components/ProfileForm';
+
 // route to get logged in user's info (needs the token)
 export const getMe = (token) => {
   return fetch('/api/users/me', {
@@ -50,8 +52,17 @@ export const deleteBook = (bookId, token) => {
   });
 };
 
-// make a search to google books api
-// https://www.googleapis.com/books/v1/volumes?q=harry+potter
-export const searchGoogleBooks = (query) => {
-  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+// make a search to open weather api
+// https://api.openweathermap.org/data/2.5/weather?q= {los+angeles} &appid=9b2ae69bfce6899c26e740f85827a619
+export const searchOpenWeather = (userFormData) => {
+  const apiKey = '9b2ae69bfce6899c26e740f85827a619'
+  let city = userFormData.city
+  // let currentFtemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
+  // let currentHumidity = data.main.humidity + "%"
+  // 
+
+
+  return fetch ('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey);
 };
+
+
