@@ -1,9 +1,42 @@
+/* color palette */ 
 :root {
   --one: #f0e7e7;
   --two: #452804;
   --three: #c1440e;
   --four: #e77d11;
   --five: #0e0e49;
+  --six: rgb(131, 216, 245);
+}
 
+#root {
+  background-color: var(--six);
+}
+
+/* nav bar */
+.t-nav-bar {
+  background-color: var(--four);
+  padding: 30px
+}
+
+.t-nav-item {
+  margin: 2%;
+}
+
+.t-nav-item:hover {
+  filter: saturate(150%)
+}
+
+/* footer */
+.t-colony-footer {
+  background-color: var(--four);
+  margin-top: 100px;
+}
+
+#t-nav-icon {
+  border-radius: 50px;
+}
+
+#t-nav-icon:hover {
+  box-shadow: 5px 5px 30px 5px var(--one)
 }
 
