@@ -20,7 +20,7 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto' id="t-navbar-item">
-              <Nav.Link as={Link} to='/feed' id="t-nav-link">
+              <Nav.Link as={Link} to='/feed' id="t-nav-link-feed">
                 Feed
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}

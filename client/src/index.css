@@ -23,7 +23,12 @@
   color: black
 }
 
-#t-nav-link:hover {
+#t-nav-link-feed {
+  color: black;
+  margin-right: 300px
+}
+
+#t-nav-link:hover, #t-nav-link-feed:hover {
   text-decoration: underline;
 }
 
