@@ -5,11 +5,11 @@
   --three: #c1440e;
   --four: #e77d11;
   --five: #0e0e49;
-  --six: rgb(131, 216, 245);
+  --six: lightskyblue
 }
 
 #root {
-  background-color: var(--six);
+  background-color: var(--one);
 }
 
 /* nav bar */
@@ -20,10 +20,6 @@
 
 .t-nav-item {
   margin: 2%;
-}
-
-.t-nav-item:hover {
-  filter: saturate(150%)
 }
 
 /* footer */

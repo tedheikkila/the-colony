@@ -29,10 +29,10 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/userprofile'>
                     Profile
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>Log Out</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)}>Log In/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
