@@ -30,6 +30,7 @@ const UpdateProfileForm = () => {
         throw new Error('Something went wrong');
       }
 
+      // not sure if this is needed
       const { token, user } = await response.json();
       console.log(user);
       Auth.login(token);
@@ -46,7 +47,7 @@ const UpdateProfileForm = () => {
 
   return (
     <>
-      {/* this is needed for the validation functionality above */}
+      {/* needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
