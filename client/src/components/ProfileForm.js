@@ -4,7 +4,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { updateUser } from '../utils/API';
 import Auth from '../utils/auth';
 
-const ProfileForm = () => {
+const UpdateProfileForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
   // set state for form validation
@@ -28,7 +28,7 @@ const ProfileForm = () => {
     }
 
     try {
-      const response = await createUser(userFormData);
+      const response = await updateUser(userFormData);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -107,4 +107,4 @@ const ProfileForm = () => {
   );
 };
 
-export default ProfileForm;
+export default UpdateProfileForm;
