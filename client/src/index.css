@@ -5,9 +5,10 @@
   --three: #c1440e;
   --four: #e77d11;
   --five: #0e0e49;
-  --six: #9ce0fc
+  --six: #9ce0fc;
 }
 
+/* root id */
 #root {
   background-color: var(--six)
 }
@@ -25,6 +26,14 @@
 #t-nav-link:hover {
   text-decoration: underline;
 }
+
+#t-login-modal-btn, #t-signup-modal-btn {
+  background-color: var(--four);
+  border: none;
+}
+
+
+
 
 
 
