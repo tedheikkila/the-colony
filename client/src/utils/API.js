@@ -1,4 +1,4 @@
-import { UpdateProfileForm } from '../components/ProfileForm';
+import { UpdateProfileForm } from '../components/ProfileForm'
 
 // route to get logged in user's info (needs the token)
 export const getMe = (token) => {
@@ -57,10 +57,10 @@ export const deleteBook = (bookId, token) => {
 export const searchOpenWeather = (userFormData) => {
   const apiKey = '9b2ae69bfce6899c26e740f85827a619'
   let city = userFormData.city
-  // let currentFtemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
+    // use these later for profile page stats container 
+  // let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
   // let currentHumidity = data.main.humidity + "%"
-  // 
-
+  // let currentOvercast = data.weather[0].description
 
   return fetch ('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey);
 };
