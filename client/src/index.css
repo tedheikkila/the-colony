@@ -1,17 +1,9 @@
-body {
-  font-family: 'Rubik', sans-serif;
+:root {
+  --one: #f0e7e7;
+  --two: #452804;
+  --three: #c1440e;
+  --four: #e77d11;
+  --five: #0e0e49;
+
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Rubik Mono One', sans-serif;
-}
-
-.small {
-  font-weight: 300;
-  font-style: italic;
-}
