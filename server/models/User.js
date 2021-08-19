@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+
+// import schema from Book.js
 const postSchema = require('./Post');
 
 const userSchema = new Schema(
@@ -19,6 +21,24 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+
+    name: {
+      type: String,
+    },
+    age: {
+      type: INT,
+    },
+    weight: {
+      type: INT,
+    },
+    city: {
+      type: String
+    },
+    
+    colonies: [colonySchema],
+
+    posts: [postSchema],
+    
     savedPosts: [postSchema],
   },
   // set this to use virtual below
