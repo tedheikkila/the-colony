@@ -1,5 +1,5 @@
 # the-colony
-uses React and Mongo to view Mars info, develop a profile, and join The Colony
+uses React and Mongo to view Mars info, develop a profile, and post to the Colony's feed
 
 ## Table of Contents
 

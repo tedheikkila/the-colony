@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
+// local Robo 3T db = et
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/colony', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

@@ -1,11 +1,82 @@
+/* color palette */ 
 :root {
   --one: #f0e7e7;
   --two: #452804;
   --three: #c1440e;
   --four: #e77d11;
   --five: #0e0e49;
-
+  --six: #9ce0fc;
 }
+
+/* root id */
+#root {
+  background-color: var(--six)
+}
+
+/* nav bar */
+.t-nav-bar {
+  background-color: var(--four);
+  padding: 30px;
+  border-bottom: 20px solid var(--five);
+  font-size: 18px;
+}
+
+#t-nav-title {
+  color: black;
+  font-size: 28px;
+}
+
+#t-nav-title:hover {
+  text-decoration: underline;
+}
+
+#t-nav-link {
+  color: black;
+  font-size: 18px;
+}
+
+#t-nav-link-feed {
+  color: black;
+  margin-right: 300px
+}
+
+#t-nav-link:hover, #t-nav-link-feed:hover {
+  text-decoration: underline;
+}
+
+#t-login-modal-btn, #t-signup-modal-btn {
+  background-color: var(--two);
+  border: none;
+}
+
+#t-login-modal-btn:hover, #t-signup-modal-btn:hover {
+  background-color: var(--three);
+  border: none
+}
+
+/* feed */
+.the-feed {
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+.post-form {
+  margin-right: 20%;
+  margin-top: 350px;
+}
+
+.post-title {
+  width: 100%;
+  text-indent: 20px;
+  height: 35px;
+}
+
+.post-text {
+  width: 100%;
+  text-indent: 20px;
+  height: 100px;
+}
+
 
 body {
   margin: none;
@@ -52,3 +123,73 @@ body {
 .card {
   background-color: var(--three);
 }
+#submit-post {
+  width: 100%;
+  background-color: var(--two);
+  border: none;
+  margin-top: -10px
+}
+
+#submit-post:hover {
+  background-color: var(--three);
+}
+
+.list-container .card {
+  width: 300px;
+  height: calc(110vh);
+  border-bottom: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: var(--one);
+}
+
+.city-feed-btn {
+  width: 70%;
+  padding: 10px;
+  margin-left: 40px;
+  margin-top: 20px;
+  background-color: var(--two);
+  border: none
+}
+
+.city-feed-btn:hover {
+  background-color: var(--three);
+}
+
+.feeds-sidebar {
+  background-color: var(--one);
+  font-size: 30px;
+}
+
+
+/* footer */
+.t-colony-footer {
+  background-color: var(--four);
+  border-top: 20px solid var(--five);
+}
+
+.t-footer-item {
+  margin: 1%;
+}
+
+.t-footer-copyright {
+  margin: 2%;
+}
+
+#t-footer-icon {
+  border-radius: 50px;
+}
+
+#t-footer-icon:hover {
+  box-shadow: 5px 5px 30px 5px var(--one)
+}
+
+/* screens */
+@media screen and (max-width: 600px) {
+  .list-container .card
+   {
+     width: 150px;
+  }
+  
+} 
+
