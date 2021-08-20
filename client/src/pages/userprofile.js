@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Tab, Button, CardGroup } from 'react-bootstrap';
+import { Modal, Tab, Button, CardGroup, Container, Card } from 'react-bootstrap';
 import ProfileForm from '../components/ProfileForm';
 // import Auth from '../utils/auth';
 // import { saveBook, searchGoogleBooks } from '../utils/API';
@@ -11,10 +11,11 @@ const UserProfile = () => {
 
   return (
     <>
-
-      <Button bg='dark' variant='dark'
-        onClick={() => setShowProfileModal(true)}>Edit Profile
-      </Button>
+      <Container className = "edit-profile-btn-ctn">
+        <Button bg='dark' variant='dark' id="edit-profile-btn"
+          onClick={() => setShowProfileModal(true)}>Edit Profile
+        </Button>
+      </Container>
       {/* set profile update modal up */}
       <Modal
         size='lg'
@@ -22,7 +23,7 @@ const UserProfile = () => {
         onHide={() => setShowProfileModal(false)}
         aria-labelledby='update-profile-modal'>
         <Modal.Header closeButton>
-          <Modal.Title id='update-profile-modal'> Update profile
+          <Modal.Title id='update-profile-modal'> Edit profile
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -32,44 +33,32 @@ const UserProfile = () => {
         </Modal.Body>
       </Modal>
 
-      <div className="user-container">
-      <CardGroup>
-        <div className="card">
-          <h3 className="card-header" id="interests-header">Planet</h3>
+      <CardGroup className="profile-cardgroup">
+        <Card className="planet-card">
+          <h3 className="card-header" id="planet-header">Planet</h3>
           <div className="card-body">
-            <h4 className="card-title">App development</h4>
-            <p className="card-text">entertainment</p>
-            <p className="card-text">music</p>
-            <p className="card-text">niche necessities</p>
-            <h4 className="card-title">Web design</h4>
-            <p className="card-text">food/textiles</p>
-            <p className="card-text">e-commerce</p>
-            <p className="card-text">renewable energy</p>
+            <h4>Earth</h4>
+            <img className="planet-img" src="./assets/images/planet-icons.png" height="300" width="300" alt="Planet"/>
           </div>
-        </div>
-        <div className="card" id="img-card">
-          <img className="avatar-img" src="./assets/images/avatar.png" height="300" width="200" alt="Avatar Icon"/>
+        </Card>
+        <Card className="username-card">
+          <h3 className="card-header" id="username-header">Username</h3>
           <div className="card-body">
-            <h4 className="card-title" id="status-title">Status</h4>
-            <p className="card-text">
-              UMN coding student developer
-            </p>
+            <h4 className="body-title">City</h4>
+            <p className="body-text">Date</p>
+            <p className="body-text">Temp: 50 F</p>
+            <p className="body-text">Humidity: 50%</p>
+            <p className="body-text">Wind: 5 mph</p>
           </div>
-        </div>
-        <div className="card">
-          <h3 className="card-header" id="hobbies-header">Hobbies</h3>
+        </Card>
+        <Card className="zodiac-card">
+          <h3 className="card-header" id="zodiac-header">Zodiac</h3>
           <div className="card-body">
-            <ul className="list-group" id="hobbies-body">
-              <li className="list-group-item">Running</li>
-              <li className="list-group-item" id="even-hobbies">Coding</li>
-              <li className="list-group-item">Gaming</li>
-              <li className="list-group-item" id="even-hobbies">Music</li>
-              <li className="list-group-item">Anime</li>
-            </ul>
+            <h4>Sign</h4>
+            <img className="zodiac-img" src="./assets/images/zodiac-icons.png" height="300" width="300" alt="Zodiac"/>
           </div>
-        </div>
+        </Card>
       </CardGroup>
-    </div>
 
 
 

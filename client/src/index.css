@@ -14,7 +14,6 @@
   font-family: 'Orbitron', sans-serif;
 }
 
-
 /* nav bar */
 .t-nav-bar {
   background-color: var(--four);
@@ -41,6 +40,16 @@
   color: black;
   margin-right: 300px
 }
+
+#t-nav-link-profile {
+  color: black;
+  margin-right: 150px
+}
+
+#t-nav-link-profile:hover {
+  text-decoration: underline;
+}
+
 
 #t-nav-link:hover, #t-nav-link-feed:hover {
   text-decoration: underline;
@@ -79,7 +88,6 @@
   height: 100px;
 }
 
-
 body {
   margin: none;
 }
@@ -106,9 +114,11 @@ body {
   margin-right:5%;
   margin-top: 5%;
 }
+
 .images img {
   margin: 2%;
 }
+
 .item {
   width: 45%;
   height: 100%;
@@ -118,17 +128,21 @@ body {
 .page-header {
   text-align: center;
 }
+
 .margin {
   margin-bottom: 25px;
 }
+
 .card {
   background-color: var(--three);
 }
+
 .stats {
   margin-right: 5%;
   margin-left: 5%;
   padding-bottom: 150px;
 }
+
 #submit-post {
   width: 100%;
   background-color: var(--two);
@@ -167,6 +181,80 @@ body {
   font-size: 30px;
 }
 
+/* user profile */
+.edit-profile-btn-ctn {
+  text-align: center;
+}
+
+#edit-profile-btn {
+  background-color: var(--two);
+  color: white;
+  border: none;
+  margin: 30px;
+  padding: 15px;
+}
+
+#edit-profile-btn:hover {
+  background-color: var(--three);
+}
+
+.body-title {
+  margin-bottom: 20px;
+}
+
+.profile-cardgroup {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  margin-top: -2%;
+}
+
+#planet-header, #zodiac-header {
+  background-color: black;
+  color: white;
+  border-bottom: solid white 5px
+}
+
+#planet-header {
+  background-color: var(--five)
+}
+
+#username-header {
+  border-bottom: solid black 5px;
+}
+
+#username-header {
+  background-color: var(--one);
+  color: black
+}
+
+.planet-card, .username-card, .zodiac-card {
+  margin: 5%;
+  background-color: var(--one);
+}
+
+.planet-card, .zodiac-card {
+  background-color: black;
+  margin-bottom: -50px;
+  color: white
+}
+
+.planet-card {
+  background-color: var(--five)
+}
+
+.planet-img {
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(138%);
+  border-radius: 30px;
+}
+
+.zodiac-img {
+  width: 100%;
+}
+
 
 /* footer */
 .t-colony-footer {
@@ -190,16 +278,15 @@ body {
   box-shadow: 5px 5px 30px 5px var(--one)
 }
 
-/* screens */
-@media screen and (max-width: 600px) {
-  .list-container .card
-   {
-     width: 150px;
-  }
-  
-} 
 
-
+/* misc */
+.grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 12%;
+  margin-bottom: 5%;
+}
 
 /* .row {
   display: flex;
@@ -217,11 +304,23 @@ body {
   vertical-align: middle;
 } */
 
-.grid {
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-left: 12%;
-  margin-bottom: 5%;
-}
+/* screens */
+@media screen and (max-width: 600px) {
+  .list-container .card
+   {
+     width: 150px;
+  }
+
+  .planet-img {
+    width: 100%;
+    margin: 0;
+  }
+  
+} 
+
+
+
+
+
+
 
