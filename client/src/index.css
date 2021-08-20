@@ -44,14 +44,20 @@
 }
 
 /* feed */
+.the-feed {
+  margin-left: 50%;
+  margin-top: 2%;
+}
+
 .post-form {
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-top: 100px;
+  margin-left: 40%;
+  margin-right: 20%;
+  margin-top: 350px;
 }
 
 .post-text {
   width: 100%;
+  text-indent: 20px;
 }
 
 #submit-post {
@@ -70,7 +76,7 @@
 /* footer */
 .t-colony-footer {
   background-color: var(--four);
-  margin-top: 250px;
+  margin-top: 50px;
   border-top: 20px solid var(--five);
 }
 
