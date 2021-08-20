@@ -14,7 +14,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={roverProfile} />
           <Route exact path='/user' component={userProfile} />
-          <Route exact path='feed' component={feed} />
+          <Route exact path='/feed' component={feed} />
         </Switch>
         <Footer />
       </>
