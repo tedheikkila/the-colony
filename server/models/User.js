@@ -26,10 +26,10 @@ const userSchema = new Schema(
       type: String,
     },
     age: {
-      type: INT,
+      type: Number,
     },
     weight: {
-      type: INT,
+      type: Number,
     },
     city: {
       type: String
