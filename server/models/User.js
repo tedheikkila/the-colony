@@ -26,20 +26,15 @@ const userSchema = new Schema(
       type: String,
     },
     age: {
-      type: INT,
+      type: Number,
     },
     weight: {
-      type: INT,
+      type: Number,
     },
     city: {
       type: String
     },
-    
-    colonies: [colonySchema],
-
     posts: [postSchema],
-    
-    savedPosts: [postSchema],
   },
   // set this to use virtual below
   {

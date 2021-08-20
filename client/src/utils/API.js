@@ -10,6 +10,22 @@ export const getMe = (token) => {
   });
 };
 
+export const getFeed = () => {
+  return fetch('/api/feed', {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+};
+
+export const getColonies = () => {
+  return fetch('/api/colonies', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
 export const createUser = (userData) => {
   return fetch('/api/users', {
     method: 'POST',
@@ -40,27 +56,33 @@ export const loginUser = (userData) => {
   });
 };
 
-// save book data for a logged in user
-export const saveBook = (bookData, token) => {
+export const updateUser = (userData, token) => {
   return fetch('/api/users', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(bookData),
+    }, 
+    body: JSON.stringify(userData),
   });
 };
 
-// remove saved book data for a logged in user
-export const deleteBook = (bookId, token) => {
-  return fetch(`/api/users/books/${bookId}`, {
+export const deletePost = (postId, token) => {
+  return fetch(`/api/users/posts/${postId}`, {
     method: 'DELETE',
     headers: {
       authorization: `Bearer ${token}`,
     },
   });
 };
+
+export const searchAPOD = () => {
+  return fetch('https://api.nasa.gov/planetary/apod?api_key=v1vqd0PdgPpMhpKjaxObGA6dQtpp5g5KweeYDx7O')
+};
+
+export const searchRoverImg =() => {
+  return fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=v1vqd0PdgPpMhpKjaxObGA6dQtpp5g5KweeYDx7O')
+}
 
 // make a search to open weather api
 // https://api.openweathermap.org/data/2.5/weather?q= {los+angeles} &appid=9b2ae69bfce6899c26e740f85827a619
@@ -74,5 +96,4 @@ export const searchOpenWeather = (userFormData) => {
 
   return fetch ('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey);
 };
-
 
