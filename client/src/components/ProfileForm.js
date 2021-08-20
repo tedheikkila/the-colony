@@ -107,7 +107,7 @@ const UpdateProfileForm = () => {
           <Form.Control.Feedback type='invalid'>Zodiac is required</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label htmlFor='age'>Age</Form.Label>
           <Form.Control
             type='text'
@@ -127,7 +127,7 @@ const UpdateProfileForm = () => {
             onChange={handleInputChange}
             value={userFormData.weight}
           />
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group>
           <Form.Label htmlFor='gender'>Gender</Form.Label>
