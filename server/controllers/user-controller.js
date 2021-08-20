@@ -1,10 +1,30 @@
 // import user model
-const { User } = require('../models');
+const { User, Post, Colony } = require('../models');
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
 
 module.exports = {
   // get single user by either their id or username
+  async getposts({ params }, res) {
+    const posts = await Post.findAll({});
+
+    if (!posts) {
+      return res.status(400).json({ message: 'Cannot find posts' });
+    }
+
+    res.json(posts);
+  },
+
+  async getColonies({ params }, res) {
+    const colonies = await Colony.findAll({});
+
+    if (!colonies) {
+      return res.status(400).json({ message: 'Cannot find  any Colonies' });
+    }
+
+    res.json(colonies);
+  },
+
   async getSingleUser({ user = null, params }, res) {
     const foundUser = await User.findOne({
       $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
@@ -41,13 +61,11 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
-  // save post to user's `savedPosts`
-  async savePost({ user, body }, res) {
-    console.log(user);
+  async createPost({user, body}, res) {
     try {
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
-        { $addToSet: { savedPosts: body } },
+        { $addToSet: { posts: body } },
         { new: true, runValidators: true }
       );
       return res.json(updatedUser);
@@ -56,6 +74,21 @@ module.exports = {
       return res.status(400).json(err);
     }
   },
+  // save post to user's `savedPosts`
+  // async savePost({ user, body }, res) {
+  //   console.log(user);
+  //   try {
+  //     const updatedUser = await User.findOneAndUpdate(
+  //       { _id: user._id },
+  //       { $addToSet: { savedPosts: body } },
+  //       { new: true, runValidators: true }
+  //     );
+  //     return res.json(updatedUser);
+  //   } catch (err) {
+  //     console.log(err);
+  //     return res.status(400).json(err);
+  //   }
+  // },
   // remove post from `savedPosts`
   async deletePost({ user, params }, res) {
     const updatedUser = await User.findOneAndUpdate(
