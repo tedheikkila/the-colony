@@ -8,16 +8,16 @@ import { Container, Button, Form, Jumbotron} from 'react-bootstrap';
 function feed() {
 
   return (
-    <Container className="container-fluid">
+    <>
       <div className="row">
-        <div className="col-4 list-container">
+        <Container className="col-4 list-container">
           <div className="card">
             <ul className="list-group">
               <Jumbotron className="feeds-sidebar">Feeds</Jumbotron>
               <Button className="city-feed-btn">City Feed</Button>
             </ul>
           </div>
-        </div>
+        </Container>
         <Container className="feed-container col-8">
           <h2 className="the-feed">The Feed</h2>
           <Form className="post-form">
@@ -26,7 +26,7 @@ function feed() {
           </Form>
         </Container>
       </div>
-    </Container>
+    </>
   );
 };
 

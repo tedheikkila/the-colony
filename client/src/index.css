@@ -18,10 +18,21 @@
   background-color: var(--four);
   padding: 30px;
   border-bottom: 20px solid var(--five);
+  font-size: 18px;
+}
+
+#t-nav-title {
+  color: black;
+  font-size: 28px;
+}
+
+#t-nav-title:hover {
+  text-decoration: underline;
 }
 
 #t-nav-link {
-  color: black
+  color: black;
+  font-size: 18px;
 }
 
 #t-nav-link-feed {
@@ -44,10 +55,6 @@
 }
 
 /* feed */
-.feed-container {
-  border-radius: 20px;
-}
-
 .the-feed {
   margin-left: 30%;
   margin-top: 5%;
@@ -76,9 +83,8 @@
 }
 
 .list-container .card {
-  margin-left: -50px;
   width: 300px;
-  height: calc(100vh);
+  height: calc(110vh);
   border-bottom: none;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -88,7 +94,7 @@
 .city-feed-btn {
   width: 70%;
   padding: 10px;
-  margin-left: 20px;
+  margin-left: 40px;
   margin-top: 20px;
   background-color: var(--two);
   border: none
@@ -125,4 +131,13 @@
 #t-footer-icon:hover {
   box-shadow: 5px 5px 30px 5px var(--one)
 }
+
+/* screens */
+@media screen and (max-width: 600px) {
+  .list-container .card
+   {
+     width: 150px;
+  }
+  
+} 
 
