@@ -5,7 +5,8 @@ import { updateUser } from '../utils/API';
 import Auth from '../utils/auth';
 
 const UpdateProfileForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: '', planet: '', city: '', age: '', weight:'', gender: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', planet: '', city: '', 
+                                                    zodiac: '', age: '', weight:'', gender: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -40,7 +41,7 @@ const UpdateProfileForm = () => {
     }
 
     setUserFormData({
-        username: '', planet: '', city: '', 
+        username: '', planet: '', city: '', zodiac:'',
         age: '', weight:'', gender: '' 
     });
   };
@@ -91,6 +92,19 @@ const UpdateProfileForm = () => {
             required
           />
           <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='zodiac'>Zodiac</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your Zodiac sign'
+            name='zodiac'
+            onChange={handleInputChange}
+            value={userFormData.zodiac}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>Zodiac is required</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
