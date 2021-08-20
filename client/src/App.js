@@ -13,7 +13,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path='/' component={roverProfile} />
-          <Route exact path='/user' component={userProfile} />
+          <Route exact path='/userprofile' component={userProfile} />
           <Route exact path='/feed' component={feed} />
         </Switch>
         <Footer />

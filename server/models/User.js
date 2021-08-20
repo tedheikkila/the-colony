@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Book.js
-const postSchema = require('./Post');
+
+// const postSchema = require('./Post');
 
 const userSchema = new Schema(
   {
@@ -34,7 +34,7 @@ const userSchema = new Schema(
     city: {
       type: String
     },
-    posts: [postSchema],
+    // posts: [postSchema],
   },
   // set this to use virtual below
   {
@@ -60,8 +60,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get `postCount` (# of their saved posts)
-userSchema.virtual('postCount').get(function () {
-  return this.savedPosts.length;
-});
+// userSchema.virtual('postCount').get(function () {
+//   return this.savedPosts.length;
+// });
+const User = model('User', userSchema);
 
-module.exports = userSchema;
+module.exports = User;

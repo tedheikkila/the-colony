@@ -38,13 +38,15 @@ module.exports = {
   },
   // create user, sign token, and send back (client/src/components/SignUpForm.js)
   async createUser({ body }, res) {
+    // console.log(body);
     const user = await User.create(body);
-
+    // console.log(user)
     if (!user) {
       return res.status(400).json({ message: 'User not created' });
     }
     const token = signToken(user);
     res.json({ token, user });
+    console.log(token);
   },
   // login user, sign token, and send back (client/src/components/LoginForm.js)
   async login({ body }, res) {
@@ -61,6 +63,7 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
+
   async createPost({user, body}, res) {
     try {
       const updatedUser = await User.findOneAndUpdate(

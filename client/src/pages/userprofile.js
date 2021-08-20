@@ -8,7 +8,7 @@ function userProfile () {
 
   return (
     <div>
-
+      <p>hi this is bs</p>
     </div>
   );
 };

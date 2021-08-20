@@ -1,5 +1,5 @@
 const { Schema } = require('mongoose');
-const userSchema = require('./User');
+// const userSchema = require('./User');
 
 
 const colonySchema = new Schema({
@@ -7,9 +7,9 @@ const colonySchema = new Schema({
     type: String,
     required: true
   },
-  members: [
-    userSchema
-  ]
+  // members: [
+  //   userSchema
+  // ]
 });
 
 module.exports = colonySchema;
