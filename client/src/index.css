@@ -10,8 +10,10 @@
 
 /* root id */
 #root {
-  background-color: var(--six)
+  background-color: var(--six);
+  font-family: 'Orbitron', sans-serif;
 }
+
 
 /* nav bar */
 .t-nav-bar {
@@ -108,20 +110,24 @@ body {
   margin: 2%;
 }
 .item {
-  width: 30%;
-  height: 200px;
-  padding-left: 15%;
+  width: 45%;
+  height: 100%;
+  margin-left: 15%;
 } 
 
 .page-header {
   text-align: center;
-  padding-bottom: 25px;
 }
 .margin {
-  margin-bottom: 200px;
+  margin-bottom: 25px;
 }
 .card {
   background-color: var(--three);
+}
+.stats {
+  margin-right: 5%;
+  margin-left: 5%;
+  padding-bottom: 150px;
 }
 #submit-post {
   width: 100%;
@@ -192,4 +198,30 @@ body {
   }
   
 } 
+
+
+
+/* .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+} */
+
+.grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 12%;
+  margin-bottom: 5%;
+}
 
