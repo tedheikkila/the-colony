@@ -76,8 +76,8 @@
 }
 
 .list-container .card {
-  margin-left: -100px;
-  width: 80%;
+  margin-left: -50px;
+  width: 300px;
   height: calc(100vh);
   border-bottom: none;
   border-bottom-right-radius: 0;
@@ -86,7 +86,8 @@
 }
 
 .city-feed-btn {
-  width: 80%;
+  width: 70%;
+  padding: 10px;
   margin-left: 20px;
   margin-top: 20px;
   background-color: var(--two);
