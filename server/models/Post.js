@@ -2,6 +2,7 @@ const { Schema } = require('mongoose');
 const commentSchema = require('./Comment')
 
 const postSchema = new Schema({
+
   title: {
     type: String,
     required: true
@@ -18,5 +19,6 @@ const postSchema = new Schema({
     commentSchema
   ]
 });
+
 
 module.exports = postSchema;

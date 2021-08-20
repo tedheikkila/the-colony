@@ -36,15 +36,15 @@ export const createUser = (userData) => {
   });
 };
 
-export const updateUser = (userData) => {
-  return fetch('/api/users', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userData),
-  });
-};
+// export const updateUser = (userData) => {
+//   return fetch('/api/users', {
+//     method: 'PUT',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(userData),
+//   });
+// };
 
 export const loginUser = (userData) => {
   return fetch('/api/users/login', {
