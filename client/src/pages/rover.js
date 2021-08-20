@@ -10,6 +10,10 @@ function roverProfile () {
   return (
     <div>
 
+      <div class="card">
+        <img class="round" src="./assets/mars.jpg" alt="Card image" />
+      </div>
+
     </div>
   );
 };
