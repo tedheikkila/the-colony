@@ -21,6 +21,7 @@ function feed() {
         <Container className="feed-container col-8">
           <h2 className="the-feed">The Feed</h2>
           <Form className="post-form">
+            <textarea className="post-title" placeholder="Post title"></textarea>
             <textarea className="post-text" placeholder="Send message to Feed"></textarea>
             <Button className="btn btn-primary" type="submit" id="submit-post">Send it</Button>
           </Form>

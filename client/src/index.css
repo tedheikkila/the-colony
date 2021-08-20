@@ -62,7 +62,13 @@
 
 .post-form {
   margin-right: 20%;
-  margin-top: 400px;
+  margin-top: 350px;
+}
+
+.post-title {
+  width: 100%;
+  text-indent: 20px;
+  height: 35px;
 }
 
 .post-text {
