@@ -72,7 +72,7 @@ const UpdateProfileForm = () => {
           <Form.Label htmlFor='planet'>Planet</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your planet'
+            placeholder='Your solar system planet'
             name='planet'
             onChange={handleInputChange}
             value={userFormData.planet}
