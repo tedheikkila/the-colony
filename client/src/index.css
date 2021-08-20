@@ -16,7 +16,8 @@
 /* nav bar */
 .t-nav-bar {
   background-color: var(--four);
-  padding: 30px
+  padding: 30px;
+  border-bottom: 20px solid var(--five);
 }
 
 #t-nav-link {
@@ -33,11 +34,35 @@
 }
 
 #t-login-modal-btn, #t-signup-modal-btn {
-  background-color: var(--four);
+  background-color: var(--two);
   border: none;
 }
 
+#t-login-modal-btn:hover, #t-signup-modal-btn:hover {
+  background-color: var(--three);
+  border: none
+}
 
+/* feed */
+.post-form {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 100px;
+}
+
+.post-text {
+  width: 100%;
+}
+
+#submit-post {
+  width: 100%;
+  background-color: var(--two);
+  border: none;
+}
+
+#submit-post:hover {
+  background-color: var(--three);
+}
 
 
 
@@ -45,7 +70,8 @@
 /* footer */
 .t-colony-footer {
   background-color: var(--four);
-  margin-top: 100px;
+  margin-top: 250px;
+  border-top: 20px solid var(--five);
 }
 
 .t-footer-item {
