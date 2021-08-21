@@ -55,7 +55,7 @@ const UpdateProfileForm = () => {
           Something went wrong with your update
         </Alert>
 
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label htmlFor='username'>Username</Form.Label>
           <Form.Control
             type='text'
@@ -66,13 +66,13 @@ const UpdateProfileForm = () => {
             required
           />
           <Form.Control.Feedback type='invalid'>Username is required</Form.Control.Feedback>
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group>
-          <Form.Label htmlFor='planet'>Planet</Form.Label>
+          <Form.Label htmlFor='planet'>Choose Planet</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your solar system planet'
+            placeholder='Your favorite planet'
             name='planet'
             onChange={handleInputChange}
             value={userFormData.planet}
@@ -95,10 +95,10 @@ const UpdateProfileForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='zodiac'>Zodiac</Form.Label>
+          <Form.Label htmlFor='zodiac'>Choose Zodiac</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your Zodiac sign'
+            placeholder='Your zodiac sign'
             name='zodiac'
             onChange={handleInputChange}
             value={userFormData.zodiac}
@@ -129,7 +129,7 @@ const UpdateProfileForm = () => {
           />
         </Form.Group> */}
 
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label htmlFor='gender'>Gender</Form.Label>
           <Form.Control
             type='text'
@@ -138,7 +138,7 @@ const UpdateProfileForm = () => {
             onChange={handleInputChange}
             value={userFormData.gender}
           />
-        </Form.Group>
+        </Form.Group> */}
 
         <Button
           disabled={!(userFormData.username && userFormData.planet && userFormData.city)}
