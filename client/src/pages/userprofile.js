@@ -3,8 +3,6 @@ import { Modal, Tab, Button, CardGroup, Container, Card } from 'react-bootstrap'
 import ProfileForm from '../components/ProfileForm';
 
 // import Auth from '../utils/auth';
-// import { saveBook, searchGoogleBooks } from '../utils/API';
-// import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import { getCurrentDate } from '../utils/functions'
 import { searchWeatherApi } from '../utils/API'
 
@@ -54,7 +52,6 @@ const UserProfile = () => {
   }
   getStoredOvercast()
 
-
   // update profile fcns
   function getUsername() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
@@ -68,14 +65,17 @@ const UserProfile = () => {
   }
   getUserCity()
 
-
-
   function getUserPlanet() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
     return storedUserData.planet
   }
-
   getUserPlanet()
+
+  function getUserZodiac() {
+    let storedUserData = JSON.parse(localStorage.getItem("user"));
+    return storedUserData.zodiac
+  }
+  getUserZodiac()
 
   return (
     <>
@@ -123,7 +123,7 @@ const UserProfile = () => {
         <Card className="zodiac-card">
           <h3 className="card-header" id="zodiac-header">Zodiac</h3>
           <div className="card-body">
-            <h4>Sign</h4>
+            <h4>{getUserZodiac()}</h4>
             <img className="zodiac-img" src="./assets/images/zodiac-icons.png" height="300" width="300" alt="Zodiac"/>
           </div>
         </Card>
