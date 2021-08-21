@@ -1,5 +1,5 @@
 // import { UpdateProfileForm } from '../components/ProfileForm'
-import axios from 'axios';
+// import axios from 'axios';
 
 // route to get logged in user's info (needs the token)
 export const getMe = (token) => {
@@ -81,24 +81,23 @@ export const searchAPOD = () => {
   return fetch('https://api.nasa.gov/planetary/apod?api_key=v1vqd0PdgPpMhpKjaxObGA6dQtpp5g5KweeYDx7O')
 };
 
-export const searchRoverImg =() => {
+export const searchRoverImg = () => {
   return fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=v1vqd0PdgPpMhpKjaxObGA6dQtpp5g5KweeYDx7O')
 }
 
 // make a search to open weather api
-// https://api.openweathermap.org/data/2.5/weather?q= {los+angeles} &appid=9b2ae69bfce6899c26e740f85827a619
+// https://api.openweathermap.org/data/2.5/weather?q= {los+angeles} &appid=9b2ae69bfce6899c26e740f85827a619 
+
 export const searchWeatherApi = (query) => {
   const apiKey = '9b2ae69bfce6899c26e740f85827a619'
-
-  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`)
-
-  // let city = 'champlin'
-  // use these later for profile page stats container 
-    
+  return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`);
+};
   // let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
   // let currentHumidity = data.main.humidity + "%"
   // let currentOvercast = data.weather[0].description
-};
+
+
+
 
 
 

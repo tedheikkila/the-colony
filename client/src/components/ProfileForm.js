@@ -25,16 +25,20 @@ const UpdateProfileForm = () => {
     }
 
     try {
-      const response = await updateUser(userFormData);
+      console.log(form)
 
-      if (!response.ok) {
-        throw new Error('Something went wrong');
-      }
+      localStorage.setItem("user", JSON.stringify(userFormData));
+
+      // const response = await updateUser(userFormData);
+
+      // if (!response.ok) {
+      //   throw new Error('Something went wrong');
+      // }
 
       // not sure if this is needed
-      const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(token);
+      // const { token, user } = await response.json();
+      // console.log(user);
+      // Auth.login(token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -82,19 +86,6 @@ const UpdateProfileForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='city'>City</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your city'
-            name='city'
-            onChange={handleInputChange}
-            value={userFormData.city}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group>
           <Form.Label htmlFor='zodiac'>Choose Zodiac</Form.Label>
           <Form.Control
             type='text'
@@ -105,6 +96,19 @@ const UpdateProfileForm = () => {
             required
           />
           <Form.Control.Feedback type='invalid'>Zodiac is required</Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='city'>City</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your city'
+            name='city'
+            onChange={handleInputChange}
+            value={userFormData.city}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
         </Form.Group>
 
         {/* <Form.Group>
@@ -141,7 +145,7 @@ const UpdateProfileForm = () => {
         </Form.Group> */}
 
         <Button
-          disabled={!(userFormData.username && userFormData.planet && userFormData.city)}
+          disabled={!(userFormData.planet && userFormData.city && userFormData.zodiac)}
           type='submit'
           variant='success'>
           Submit

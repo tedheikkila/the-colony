@@ -1,6 +1,7 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { Modal, Tab, Button, CardGroup, Container, Card } from 'react-bootstrap';
 import ProfileForm from '../components/ProfileForm';
+
 // import Auth from '../utils/auth';
 // import { saveBook, searchGoogleBooks } from '../utils/API';
 // import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
@@ -10,8 +11,28 @@ import { searchWeatherApi } from '../utils/API'
 const UserProfile = () => {
   
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [searchWeatherApi, setSearchWeatherApi] = useState('');
-  const [resultsWeather, setResultsWeather] = useState([]);
+
+  // const getWeather = async () => {
+
+  //     let query = 'champlin'
+
+  //     const response = await searchWeatherApi(query);
+
+  //     const data = await response.json();
+
+  //     let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
+
+  //     console.log(currentTemp)
+  // };
+
+  // getWeather()
+
+  function getUserPlanet() {
+    let storedUserData = JSON.parse(localStorage.getItem("user"));
+    return storedUserData.planet
+  }
+
+  getUserPlanet()
 
   return (
     <>
@@ -41,7 +62,7 @@ const UserProfile = () => {
         <Card className="planet-card">
           <h3 className="card-header" id="planet-header">Planet</h3>
           <div className="card-body">
-            <h4>Earth</h4>
+            <h4>{getUserPlanet()}</h4>
             <img className="planet-img" src="./assets/images/planet-icons.png" height="300" width="300" alt="Planet"/>
           </div>
         </Card>
@@ -50,7 +71,7 @@ const UserProfile = () => {
           <div className="card-body">
             <h4 className="body-title">City</h4>
             <p className="body-text">{getCurrentDate()}</p>
-            <p className="temp-text"></p>
+            <p className="temp-text">Test</p>
             <p className="hum-text">Humidity: 50%</p>
             <p className="wind-text">Wind: 5 mph</p>
           </div>
@@ -63,9 +84,6 @@ const UserProfile = () => {
           </div>
         </Card>
       </CardGroup>
-
-
-
 
     </>
   );
