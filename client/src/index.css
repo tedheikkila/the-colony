@@ -10,7 +10,7 @@
 
 /* root id */
 #root {
-  background-color: var(--six);
+  background-color: black;
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -18,7 +18,7 @@
 .t-nav-bar {
   background-color: var(--four);
   padding: 30px;
-  border-bottom: 20px solid var(--five);
+  border-bottom: 20px solid var(--six);
   font-size: 18px;
 }
 
@@ -38,7 +38,7 @@
 
 #t-nav-link-feed {
   color: black;
-  margin-right: 300px
+  margin-right: 200px
 }
 
 #t-nav-link-profile {
@@ -69,6 +69,7 @@
 .the-feed {
   margin-left: 30%;
   margin-top: 5%;
+  color: white
 }
 
 .post-form {
@@ -187,15 +188,16 @@ body {
 }
 
 #edit-profile-btn {
-  background-color: var(--two);
+  background-color: var(--three);
   color: white;
-  border: none;
+  border: solid 3px white;
   margin: 30px;
   padding: 15px;
 }
 
 #edit-profile-btn:hover {
-  background-color: var(--three);
+  background-color: white;
+  color: black
 }
 
 .body-title {
@@ -259,7 +261,7 @@ body {
 /* footer */
 .t-colony-footer {
   background-color: var(--four);
-  border-top: 20px solid var(--five);
+  border-top: 20px solid var(--six);
 }
 
 .t-footer-item {

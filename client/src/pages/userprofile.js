@@ -5,35 +5,13 @@ import ProfileForm from '../components/ProfileForm';
 // import { saveBook, searchGoogleBooks } from '../utils/API';
 // import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import { getCurrentDate } from '../utils/functions'
-// import { searchWeatherApi } from '../utils/API'
+import { searchWeatherApi } from '../utils/API'
 
 const UserProfile = () => {
   
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [searchWeatherApi, setSearchOpenWeather] = useState('');
+  const [searchWeatherApi, setSearchWeatherApi] = useState('');
   const [resultsWeather, setResultsWeather] = useState([]);
-
-  useEffect(() => {
-    const apiKey = '9b2ae69bfce6899c26e740f85827a619'
-    let query = 'champlin'
-    searchWeather(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`)
-  });
-
-  const searchWeather = (query) => {
-
-    fetch(query)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-
-      console.log(data)
-    });
-
-  }
-
-
-
 
   return (
     <>
@@ -49,7 +27,7 @@ const UserProfile = () => {
         onHide={() => setShowProfileModal(false)}
         aria-labelledby='update-profile-modal'>
         <Modal.Header closeButton>
-          <Modal.Title id='update-profile-modal'> Edit profile
+          <Modal.Title id='update-profile-modal'> Launch profile
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -72,9 +50,9 @@ const UserProfile = () => {
           <div className="card-body">
             <h4 className="body-title">City</h4>
             <p className="body-text">{getCurrentDate()}</p>
-            <p className="body-text">Temp: 50 F</p>
-            <p className="body-text">Humidity: 50%</p>
-            <p className="body-text">Wind: 5 mph</p>
+            <p className="temp-text"></p>
+            <p className="hum-text">Humidity: 50%</p>
+            <p className="wind-text">Wind: 5 mph</p>
           </div>
         </Card>
         <Card className="zodiac-card">
