@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-import { updateUser } from '../utils/API';
-import Auth from '../utils/auth';
+// import { updateUser } from '../utils/API';
+// import Auth from '../utils/auth';
 
 const UpdateProfileForm = () => {
   const [userFormData, setUserFormData] = useState({ username: '', planet: '', city: '', 
@@ -25,8 +25,6 @@ const UpdateProfileForm = () => {
     }
 
     try {
-      console.log(form)
-
       localStorage.setItem("user", JSON.stringify(userFormData));
 
       // const response = await updateUser(userFormData);
@@ -59,7 +57,7 @@ const UpdateProfileForm = () => {
           Something went wrong with your update
         </Alert>
 
-        {/* <Form.Group>
+        <Form.Group>
           <Form.Label htmlFor='username'>Username</Form.Label>
           <Form.Control
             type='text'
@@ -70,7 +68,20 @@ const UpdateProfileForm = () => {
             required
           />
           <Form.Control.Feedback type='invalid'>Username is required</Form.Control.Feedback>
-        </Form.Group> */}
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='city'>City</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your city'
+            name='city'
+            onChange={handleInputChange}
+            value={userFormData.city}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
+        </Form.Group>
 
         <Form.Group>
           <Form.Label htmlFor='planet'>Choose Planet</Form.Label>
@@ -98,18 +109,7 @@ const UpdateProfileForm = () => {
           <Form.Control.Feedback type='invalid'>Zodiac is required</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor='city'>City</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your city'
-            name='city'
-            onChange={handleInputChange}
-            value={userFormData.city}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
-        </Form.Group>
+      
 
         {/* <Form.Group>
           <Form.Label htmlFor='age'>Age</Form.Label>
@@ -145,7 +145,7 @@ const UpdateProfileForm = () => {
         </Form.Group> */}
 
         <Button
-          disabled={!(userFormData.planet && userFormData.city && userFormData.zodiac)}
+          disabled={!(userFormData.username && userFormData.planet && userFormData.city && userFormData.zodiac)}
           type='submit'
           variant='success'>
           Submit

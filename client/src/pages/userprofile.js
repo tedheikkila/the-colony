@@ -12,20 +12,63 @@ const UserProfile = () => {
   
   const [showProfileModal, setShowProfileModal] = useState(false);
 
-  // const getWeather = async () => {
+  // weather api call and respective localStorage fcns
+  const getWeather = async () => {
 
-  //     let query = 'champlin'
+      let storedUserData = JSON.parse(localStorage.getItem("user"));
+      let query = storedUserData.city
+      const response = await searchWeatherApi(query);
+      const data = await response.json();
+      let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
+      let currentHumidity = data.main.humidity
+      let currentWind = data.wind.speed
+      let currentOvercast = data.weather[0].description
+      localStorage.setItem("temp", JSON.stringify(currentTemp));
+      localStorage.setItem("hum", JSON.stringify(currentHumidity));
+      localStorage.setItem("wind", JSON.stringify(currentWind));
+      localStorage.setItem("overcast", JSON.stringify(currentOvercast));
+  };
+  getWeather()
 
-  //     const response = await searchWeatherApi(query);
+  function getStoredTemp() {
+    let storedTemp = JSON.parse(localStorage.getItem("temp"));
+    return `${storedTemp} F`
+  }
+  getStoredTemp()
 
-  //     const data = await response.json();
+  function getStoredHum() {
+    let storedHum = JSON.parse(localStorage.getItem("hum"));
+    return `${storedHum} %`
+  }
+  getStoredHum()
 
-  //     let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
+  function getStoredWind() {
+    let storedWind= JSON.parse(localStorage.getItem("wind"));
+    return `${storedWind} mph`
+  }
+  getStoredWind()
 
-  //     console.log(currentTemp)
-  // };
+  function getStoredOvercast() {
+    let storedOvercast= JSON.parse(localStorage.getItem("overcast"));
+    return `${storedOvercast}`
+  }
+  getStoredOvercast()
 
-  // getWeather()
+
+  // update profile fcns
+  function getUsername() {
+    let storedUserData = JSON.parse(localStorage.getItem("user"));
+    return storedUserData.username
+  }
+  getUsername()
+
+  function getUserCity() {
+    let storedUserData = JSON.parse(localStorage.getItem("user"));
+    return storedUserData.city
+  }
+  getUserCity()
+
+
 
   function getUserPlanet() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
@@ -37,8 +80,8 @@ const UserProfile = () => {
   return (
     <>
       <Container className = "edit-profile-btn-ctn">
-        <Button bg='dark' variant='dark' id="edit-profile-btn"
-          onClick={() => setShowProfileModal(true)}>Edit Profile
+        <Button id="edit-profile-btn"
+          onClick={() => setShowProfileModal(true)}>Launch Profile
         </Button>
       </Container>
       {/* set profile update modal up */}
@@ -67,13 +110,14 @@ const UserProfile = () => {
           </div>
         </Card>
         <Card className="username-card">
-          <h3 className="card-header" id="username-header">Username</h3>
+          <h3 className="card-header" id="username-header">{getUsername()}</h3>
           <div className="card-body">
-            <h4 className="body-title">City</h4>
+            <h4 className="body-title">{getUserCity()}</h4>
             <p className="body-text">{getCurrentDate()}</p>
-            <p className="temp-text">Test</p>
-            <p className="hum-text">Humidity: 50%</p>
-            <p className="wind-text">Wind: 5 mph</p>
+            <p className="overcast-text">{getStoredOvercast()}</p>
+            <p className="temp-text">Temp: {getStoredTemp()}</p>
+            <p className="hum-text">Humidity: {getStoredHum()}</p>
+            <p className="wind-text">Wind: {getStoredWind()}</p>
           </div>
         </Card>
         <Card className="zodiac-card">

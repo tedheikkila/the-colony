@@ -87,14 +87,12 @@ export const searchRoverImg = () => {
 
 // make a search to open weather api
 // https://api.openweathermap.org/data/2.5/weather?q= {los+angeles} &appid=9b2ae69bfce6899c26e740f85827a619 
-
 export const searchWeatherApi = (query) => {
   const apiKey = '9b2ae69bfce6899c26e740f85827a619'
   return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`);
 };
-  // let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
-  // let currentHumidity = data.main.humidity + "%"
-  // let currentOvercast = data.weather[0].description
+
+
 
 
 
