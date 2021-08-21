@@ -4,6 +4,7 @@ import ProfileForm from '../components/ProfileForm';
 // import Auth from '../utils/auth';
 // import { saveBook, searchGoogleBooks } from '../utils/API';
 // import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { getCurrentDate } from '../utils/functions'
 
 const UserProfile = () => {
   
@@ -45,7 +46,7 @@ const UserProfile = () => {
           <h3 className="card-header" id="username-header">Username</h3>
           <div className="card-body">
             <h4 className="body-title">City</h4>
-            <p className="body-text">Date</p>
+            <p className="body-text">{getCurrentDate()}</p>
             <p className="body-text">Temp: 50 F</p>
             <p className="body-text">Humidity: 50%</p>
             <p className="body-text">Wind: 5 mph</p>
