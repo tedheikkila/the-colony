@@ -1,14 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Modal, Tab, Button, CardGroup, Container, Card } from 'react-bootstrap';
 import ProfileForm from '../components/ProfileForm';
 // import Auth from '../utils/auth';
 // import { saveBook, searchGoogleBooks } from '../utils/API';
 // import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import { getCurrentDate } from '../utils/functions'
+// import { searchWeatherApi } from '../utils/API'
 
 const UserProfile = () => {
   
   const [showProfileModal, setShowProfileModal] = useState(false);
+  const [searchWeatherApi, setSearchOpenWeather] = useState('');
+  const [resultsWeather, setResultsWeather] = useState([]);
+
+  useEffect(() => {
+    const apiKey = '9b2ae69bfce6899c26e740f85827a619'
+    let query = 'champlin'
+    searchWeather(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`)
+  });
+
+  const searchWeather = (query) => {
+
+    fetch(query)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+
+      console.log(data)
+    });
+
+  }
+
+
+
 
   return (
     <>
