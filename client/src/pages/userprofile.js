@@ -89,6 +89,10 @@ const UserProfile = () => {
   function getPlanetImg() {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
 
+    if (storedPlanet === null) {
+      return `./assets/images/planet-icons.png`
+    }
+
     switch (storedPlanet) {
       case "space drifter" || "" || null:
         return `./assets/images/planet-icons.png`
