@@ -84,16 +84,34 @@ const UserProfile = () => {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
 
     switch (storedPlanet) {
-      case "N/A":
-
-        let planetImg = `./assets/images/planet-icons.png`
-        return planetImg
+      case "space drifter" || "":
+        return `./assets/images/planet-icons.png`
 
       case "mercury":
+        return `./assets/images/mercury.png`
+
+      case "venus":
+        return `./assets/images/venus.png`
+
+      case "earth":
+        return `./assets/images/earth.png`
+
+      case "mars":
+      return `./assets/images/mars.png`
+
+      case "jupiter":
+      return `./assets/images/jupiter.png`
+
+      case "saturn":
+      return `./assets/images/saturn.png`
+
+      case "uranus":
+      return `./assets/images/uranus.png`
+
+      case "neptune":
+      return `./assets/images/neptune.png`
     }   
   }  
-
-    
   getPlanetImg()
 
   // const handleZodiac = (event) => {
@@ -108,7 +126,7 @@ const UserProfile = () => {
   // }
   // getZodiac()
 
-  // update profile fcns
+  // update profile form
   function getUsername() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
     return storedUserData.username
@@ -126,13 +144,11 @@ const UserProfile = () => {
   function getUserAge() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
     if (storedUserData.age === "") {
-      return `N/A`
+      return `immortal`
     } else
     return storedUserData.age
   }
   getUserAge()
-
-
 
   return (
     <>
@@ -172,7 +188,7 @@ const UserProfile = () => {
             id="dropdown-menu-align-left"
             onSelect={handlePlanet}
           >
-            <Dropdown.Item eventKey="N/A">Default</Dropdown.Item>
+            <Dropdown.Item eventKey="space drifter">Space Drifter</Dropdown.Item>
             <Dropdown.Item eventKey="mercury">Mercury</Dropdown.Item>
             <Dropdown.Item eventKey="venus">Venus</Dropdown.Item>
             <Dropdown.Item eventKey="earth">Earth</Dropdown.Item>
@@ -223,7 +239,7 @@ const UserProfile = () => {
 
           <div className="card-body">
             {/* <h4>{getZodiac()}</h4> */}
-            <img className="zodiac-img" src={"./assets/images/zodiac-icons.png"} height="300" width="300" alt="Zodiac" />
+            <img className="zodiac-img" src="./assets/images/zodiac-icons.png" height="300" width="300" alt="Zodiac" />
           </div>
         </Card>
       </CardGroup>
