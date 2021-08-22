@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Tab, Button, CardGroup, Container, Card } from 'react-bootstrap';
+import { Modal, Tab, Button, CardGroup, Container, Card, Alert } from 'react-bootstrap';
 import ProfileForm from '../components/ProfileForm';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -11,26 +11,37 @@ import { searchWeatherApi } from '../utils/API'
 const UserProfile = () => {
 
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [value, setValue] = useState('');
+  const [planet, setPlanet] = useState('');
+  // const [zodiac, setZodiac] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
 
-  // weather api call and respective localStorage fcns
+
+  // weather api call
   const getWeather = async () => {
 
     let storedUserData = JSON.parse(localStorage.getItem("user"));
     let query = storedUserData.city
-    const response = await searchWeatherApi(query);
-    const data = await response.json();
-    let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
-    let currentHumidity = data.main.humidity
-    let currentWind = data.wind.speed
-    let currentOvercast = data.weather[0].description
-    localStorage.setItem("temp", JSON.stringify(currentTemp));
-    localStorage.setItem("hum", JSON.stringify(currentHumidity));
-    localStorage.setItem("wind", JSON.stringify(currentWind));
-    localStorage.setItem("overcast", JSON.stringify(currentOvercast));
+
+    try {
+      const response = await searchWeatherApi(query);
+      const data = await response.json();
+      let currentTemp = Math.round(((data.main.temp - 273.15) * 9 / 5) + 32)
+      let currentHumidity = data.main.humidity
+      let currentWind = data.wind.speed
+      let currentOvercast = data.weather[0].description
+      localStorage.setItem("temp", JSON.stringify(currentTemp));
+      localStorage.setItem("hum", JSON.stringify(currentHumidity));
+      localStorage.setItem("wind", JSON.stringify(currentWind));
+      localStorage.setItem("overcast", JSON.stringify(currentOvercast));
+
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
   };
   getWeather()
 
+  // weather retrievals
   function getStoredTemp() {
     let storedTemp = JSON.parse(localStorage.getItem("temp"));
     return `${storedTemp} F`
@@ -56,9 +67,8 @@ const UserProfile = () => {
   getStoredOvercast()
 
   // planet & zodiac
-
   const handlePlanet = (event) => {
-    setValue(event);
+    setPlanet(event);
     let planet = event
     localStorage.setItem("planet", JSON.stringify(planet));
   }
@@ -70,6 +80,18 @@ const UserProfile = () => {
   }
   getPlanet()
 
+  // const handleZodiac = (event) => {
+  //   setZodiac(event);
+  //   let zodiac = event
+  //   localStorage.setItem("zodiac", JSON.stringify(zodiac));
+  // }
+
+  // function getZodiac() {
+  //   let storedZodiac = JSON.parse(localStorage.getItem("zodiac"));
+  //   return storedZodiac
+  // }
+  // getZodiac()
+
   // update profile fcns
   function getUsername() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
@@ -79,26 +101,30 @@ const UserProfile = () => {
 
   function getUserCity() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
-    return storedUserData.city
+    let storedCity = storedUserData.city
+    let userCity = storedCity.charAt(0).toUpperCase() + storedCity.slice(1);
+    return userCity
   }
   getUserCity()
 
   function getUserAge() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
+    if (storedUserData.age === "") {
+      return `N/A`
+    } else
     return storedUserData.age
   }
   getUserAge()
 
-  function getUserZodiac() {
-    let storedUserData = JSON.parse(localStorage.getItem("user"));
-    return storedUserData.zodiac
-  }
-  getUserZodiac()
 
-  
 
   return (
     <>
+
+      <Alert id="profile-alert" dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+        Please enter a valid city
+      </Alert>
+
       <Container className="edit-profile-btn-ctn">
         <Button id="edit-profile-btn"
           onClick={() => setShowProfileModal(true)}>Launch Profile
@@ -124,21 +150,21 @@ const UserProfile = () => {
       <CardGroup className="profile-cardgroup">
         <Card className="planet-card">
 
-        <DropdownButton
-          alignRight
-          title="Select Planet"
-          id="dropdown-menu-align-left"
-          onSelect={handlePlanet}
-        >
-          <Dropdown.Item eventKey="mercury">Mercury</Dropdown.Item>
-          <Dropdown.Item eventKey="venus">Venus</Dropdown.Item>
-          <Dropdown.Item eventKey="earth">Earth</Dropdown.Item>
-          <Dropdown.Item eventKey="mars">Mars</Dropdown.Item>
-          <Dropdown.Item eventKey="jupiter">Jupiter</Dropdown.Item>
-          <Dropdown.Item eventKey="saturn">Saturn</Dropdown.Item>
-          <Dropdown.Item eventKey="uranus">Uranus</Dropdown.Item>
-          <Dropdown.Item eventKey="neptune">Neptune</Dropdown.Item>
-        </DropdownButton>
+          <DropdownButton
+            alignRight
+            title="Select Planet"
+            id="dropdown-menu-align-left"
+            onSelect={handlePlanet}
+          >
+            <Dropdown.Item eventKey="mercury">Mercury</Dropdown.Item>
+            <Dropdown.Item eventKey="venus">Venus</Dropdown.Item>
+            <Dropdown.Item eventKey="earth">Earth</Dropdown.Item>
+            <Dropdown.Item eventKey="mars">Mars</Dropdown.Item>
+            <Dropdown.Item eventKey="jupiter">Jupiter</Dropdown.Item>
+            <Dropdown.Item eventKey="saturn">Saturn</Dropdown.Item>
+            <Dropdown.Item eventKey="uranus">Uranus</Dropdown.Item>
+            <Dropdown.Item eventKey="neptune">Neptune</Dropdown.Item>
+          </DropdownButton>
 
           <div className="card-body">
             <h4>{getPlanet()}</h4>
@@ -158,29 +184,28 @@ const UserProfile = () => {
           </div>
         </Card>
         <Card className="zodiac-card">
-        <DropdownButton
-          alignRight
-          title="Select Zodiac"
-          id="dropdown-menu-align-center"
-          // onSelect={handleSelect}
-        >
-          <Dropdown.Item eventKey="aries">Aries</Dropdown.Item>
-          <Dropdown.Item eventKey="taurus">Taurus</Dropdown.Item>
-          <Dropdown.Item eventKey="gemini">Gemini</Dropdown.Item>
-          <Dropdown.Item eventKey="cancer">Cancer</Dropdown.Item>
-          <Dropdown.Item eventKey="leo">Leo</Dropdown.Item>
-          <Dropdown.Item eventKey="virgo">Virgo</Dropdown.Item>
-          <Dropdown.Item eventKey="libra">Libra</Dropdown.Item>
-          <Dropdown.Item eventKey="scorpio">Scorpio</Dropdown.Item>
-          <Dropdown.Item eventKey="sagittarius">Sagittarius</Dropdown.Item>
-          <Dropdown.Item eventKey="capricorn">Capricorn</Dropdown.Item>
-          <Dropdown.Item eventKey="aquarius">Aquarius</Dropdown.Item>
-          <Dropdown.Item eventKey="pisces">Pisces</Dropdown.Item>
-        </DropdownButton>
+          <DropdownButton
+            alignRight
+            title="Select Zodiac"
+            id="dropdown-menu-align-center"
+          // onSelect={handleZodiac}
+          >
+            <Dropdown.Item eventKey="aries">Aries</Dropdown.Item>
+            <Dropdown.Item eventKey="taurus">Taurus</Dropdown.Item>
+            <Dropdown.Item eventKey="gemini">Gemini</Dropdown.Item>
+            <Dropdown.Item eventKey="cancer">Cancer</Dropdown.Item>
+            <Dropdown.Item eventKey="leo">Leo</Dropdown.Item>
+            <Dropdown.Item eventKey="virgo">Virgo</Dropdown.Item>
+            <Dropdown.Item eventKey="libra">Libra</Dropdown.Item>
+            <Dropdown.Item eventKey="scorpio">Scorpio</Dropdown.Item>
+            <Dropdown.Item eventKey="sagittarius">Sagittarius</Dropdown.Item>
+            <Dropdown.Item eventKey="capricorn">Capricorn</Dropdown.Item>
+            <Dropdown.Item eventKey="aquarius">Aquarius</Dropdown.Item>
+            <Dropdown.Item eventKey="pisces">Pisces</Dropdown.Item>
+          </DropdownButton>
 
-          {/* <h3 className="card-header" id="zodiac-header">Zodiac</h3> */}
           <div className="card-body">
-            <h4>{getUserZodiac()}</h4>
+            {/* <h4>{getZodiac()}</h4> */}
             <img className="zodiac-img" src="./assets/images/zodiac-icons.png" height="300" width="300" alt="Zodiac" />
           </div>
         </Card>

@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert, Row, Col } from 'react-bootstrap';
-
-// import { updateUser } from '../utils/API';
-// import Auth from '../utils/auth';
+import { Form, Button, Alert } from 'react-bootstrap';
 
 const UpdateProfileForm = () => {
   const [userFormData, setUserFormData] = useState({
-    username: '', city: '', age: '', gender: ''
+    username: '', city: '', age: ''
   });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-
-
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -36,7 +31,7 @@ const UpdateProfileForm = () => {
     }
 
     setUserFormData({
-      username: '', city: '', age: '', gender: ''
+      username: '', city: '', age: ''
     });
   };
 
@@ -82,26 +77,6 @@ const UpdateProfileForm = () => {
             onChange={handleInputChange}
             value={userFormData.age}
           />
-        </Form.Group>
-
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label as="legend" column sm={2}>
-            Gender (optional)
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Check
-              type="radio"
-              label="Male"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios1"
-            />
-            <Form.Check
-              type="radio"
-              label="Female"
-              name="formHorizontalRadios"
-              id="formHorizontalRadios2"
-            />
-          </Col>
         </Form.Group>
 
         <Button

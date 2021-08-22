@@ -6,11 +6,12 @@
   --four: #e77d11;
   --five: #0e0e49;
   --six: #9ce0fc;
+  --seven: rgb(37, 32, 28);
 }
 
 /* root id */
 #root {
-  background-color: black;
+  background-color: var(--seven);
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -183,6 +184,14 @@ body {
 }
 
 /* user profile */
+#profile-alert {
+  margin-top: 20px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center
+}
+
 .edit-profile-btn-ctn {
   text-align: center;
 }
@@ -192,7 +201,8 @@ body {
   background-color: var(--five);
   color: white;
   border: none;
-  font-size: 18px
+  font-size: 18px;
+  margin-left: 15px
 }
 
 #dropdown-menu-align-center {
@@ -200,13 +210,15 @@ body {
   color: white;
   border: none;
   font-size: 18px;
-  margin-top: 15px
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 #planet-btn:hover {
   background-color: white;
   color: black
 }
+
 #edit-profile-btn {
   background-color: var(--three);
   color: white;
@@ -253,15 +265,11 @@ body {
 }
 
 .planet-card, .zodiac-card {
-  background-color: black;
+  background-color: var(--seven);
   margin-bottom: -50px;
   color: white;
   border-top: solid 5px white;
   border-bottom: solid 5px white;
-}
-
-.zodiac-card {
-  background-color: black;
 }
 
 .planet-img {
