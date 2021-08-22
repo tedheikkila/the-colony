@@ -239,11 +239,13 @@ body {
 .planet-card, .zodiac-card {
   background-color: black;
   margin-bottom: -50px;
-  color: white
+  color: white;
+  border-top: solid 5px white;
+  border-bottom: solid 5px white;
 }
 
 .planet-card {
-  background-color: var(--five)
+  background-color: var(--five);
 }
 
 .planet-img {
@@ -255,6 +257,17 @@ body {
 
 .zodiac-img {
   width: 100%;
+}
+
+#profile-btn-submit {
+  background-color: var(--three);
+  border: none
+}
+
+#profile-btn-submit:hover {
+  background-color: white;
+  border: black solid 3px;
+  color: black
 }
 
 

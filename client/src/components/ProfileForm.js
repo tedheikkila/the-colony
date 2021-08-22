@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 // import { updateUser } from '../utils/API';
 // import Auth from '../utils/auth';
 
 const UpdateProfileForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: '', planet: '', city: '', 
-                                                    zodiac: '', age: '', weight:'', gender: '' });
+  const [userFormData, setUserFormData] = useState({
+    username: '', planet: '', city: '',
+    zodiac: '', age: '', weight: '', gender: ''
+  });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [value, setValue] = useState('');
+
+  const handleSelect=(event)=>{
+    console.log(event);
+    setValue(event)
+  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -43,8 +53,8 @@ const UpdateProfileForm = () => {
     }
 
     setUserFormData({
-        username: '', planet: '', city: '', zodiac:'',
-        age: '', weight:'', gender: '' 
+      username: '', planet: '', city: '', zodiac: '',
+      age: '', weight: '', gender: ''
     });
   };
 
@@ -83,6 +93,18 @@ const UpdateProfileForm = () => {
           <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
         </Form.Group>
 
+        <DropdownButton
+          alignRight
+          title="Choose Gender"
+          id="dropdown-menu-align-right"
+          onSelect={handleSelect}
+        >
+          <Dropdown.Item eventKey="male">Male</Dropdown.Item>
+          <Dropdown.Item eventKey="female">Female</Dropdown.Item>
+        </DropdownButton>
+
+        <br></br>
+
         <Form.Group>
           <Form.Label htmlFor='planet'>Choose Planet</Form.Label>
           <Form.Control
@@ -109,7 +131,17 @@ const UpdateProfileForm = () => {
           <Form.Control.Feedback type='invalid'>Zodiac is required</Form.Control.Feedback>
         </Form.Group>
 
-      
+        
+
+        {/* <Form.Group>
+          <Form.Label htmlFor='gender'>Test</Form.Label>
+          <Form.Select aria-label="Floating label select example">
+            <option>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </Form.Select>
+        </Form.Group> */}
 
         {/* <Form.Group>
           <Form.Label htmlFor='age'>Age</Form.Label>
@@ -144,10 +176,13 @@ const UpdateProfileForm = () => {
           />
         </Form.Group> */}
 
+
+
         <Button
           disabled={!(userFormData.username && userFormData.planet && userFormData.city && userFormData.zodiac)}
           type='submit'
-          variant='success'>
+          variant='success'
+          id="profile-btn-submit">
           Submit
         </Button>
       </Form>
