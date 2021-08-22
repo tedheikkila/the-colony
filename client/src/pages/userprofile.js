@@ -73,12 +73,28 @@ const UserProfile = () => {
     localStorage.setItem("planet", JSON.stringify(planet));
   }
 
-  function getPlanet() {
+  function getPlanetTitle() {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
     let userPlanet = storedPlanet.charAt(0).toUpperCase() + storedPlanet.slice(1);
     return userPlanet
   }
-  getPlanet()
+  getPlanetTitle()
+
+  function getPlanetImg() {
+    let storedPlanet = JSON.parse(localStorage.getItem("planet"));
+
+    switch (storedPlanet) {
+      case "N/A":
+
+        let planetImg = `./assets/images/planet-icons.png`
+        return planetImg
+
+      case "mercury":
+    }   
+  }  
+
+    
+  getPlanetImg()
 
   // const handleZodiac = (event) => {
   //   setZodiac(event);
@@ -156,6 +172,7 @@ const UserProfile = () => {
             id="dropdown-menu-align-left"
             onSelect={handlePlanet}
           >
+            <Dropdown.Item eventKey="N/A">Default</Dropdown.Item>
             <Dropdown.Item eventKey="mercury">Mercury</Dropdown.Item>
             <Dropdown.Item eventKey="venus">Venus</Dropdown.Item>
             <Dropdown.Item eventKey="earth">Earth</Dropdown.Item>
@@ -167,8 +184,8 @@ const UserProfile = () => {
           </DropdownButton>
 
           <div className="card-body">
-            <h4>{getPlanet()}</h4>
-            <img className="planet-img" src="./assets/images/planet-icons.png" height="300" width="300" alt="Planet" />
+            <h4>{getPlanetTitle()}</h4>
+            <img className="planet-img" src={getPlanetImg()} height="300" width="300" alt="Planet" />
           </div>
         </Card>
         <Card className="username-card">
@@ -206,7 +223,7 @@ const UserProfile = () => {
 
           <div className="card-body">
             {/* <h4>{getZodiac()}</h4> */}
-            <img className="zodiac-img" src="./assets/images/zodiac-icons.png" height="300" width="300" alt="Zodiac" />
+            <img className="zodiac-img" src={"./assets/images/zodiac-icons.png"} height="300" width="300" alt="Zodiac" />
           </div>
         </Card>
       </CardGroup>
