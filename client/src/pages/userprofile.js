@@ -131,7 +131,7 @@ const UserProfile = () => {
     localStorage.setItem("zodiac", JSON.stringify(zodiac));
   }
 
-  function getZodiac() {
+  function getZodiacTitle() {
     let storedZodiac = JSON.parse(localStorage.getItem("zodiac"));
     if (storedZodiac === null) {
       var userZodiac = "Aries"
@@ -140,7 +140,57 @@ const UserProfile = () => {
     var userZodiac = storedZodiac.charAt(0).toUpperCase() + storedZodiac.slice(1);
     return userZodiac
   }
-  getZodiac()
+  getZodiacTitle()
+
+  function getZodiacImg() {
+    let storedZodiac = JSON.parse(localStorage.getItem("zodiac"));
+
+    if (storedZodiac === null) {
+      return `./assets/images/zodiac-icons.png`
+    }
+
+    switch (storedZodiac) {
+      case "ET" || "" || null:
+        return `./assets/images/zodiac-icons.png`
+
+      case "aries":
+        return `./assets/images/aries.png`
+
+      case "taurus":
+        return `./assets/images/taurus.png`
+
+      case "gemini":
+        return `./assets/images/gemini.png`
+
+      case "cancer":
+      return `./assets/images/cancer.png`
+
+      case "leo":
+      return `./assets/images/leo.png`
+
+      case "virgo":
+      return `./assets/images/virgo.png`
+
+      case "libra":
+      return `./assets/images/libra.png`
+
+      case "scorpio":
+      return `./assets/images/scorpio.png`
+
+      case "sagittarius":
+      return `./assets/images/sagittarius.png`
+
+      case "capricorn":
+      return `./assets/images/capricorn.png`
+
+      case "aquarius":
+      return `./assets/images/aquarius.png`
+
+      case "pisces":
+      return `./assets/images/pisces.png`
+    }   
+  }  
+  getZodiacImg()
 
   // update profile form
   function getUsername() {
@@ -251,6 +301,7 @@ const UserProfile = () => {
             id="dropdown-menu-align-center"
           onSelect={handleZodiac}
           >
+            <Dropdown.Item eventKey="ET">ET</Dropdown.Item>
             <Dropdown.Item eventKey="aries">Aries</Dropdown.Item>
             <Dropdown.Item eventKey="taurus">Taurus</Dropdown.Item>
             <Dropdown.Item eventKey="gemini">Gemini</Dropdown.Item>
@@ -266,8 +317,8 @@ const UserProfile = () => {
           </DropdownButton>
 
           <div className="card-body">
-            <h4>{getZodiac()}</h4>
-            <img className="zodiac-img" src="./assets/images/zodiac-icons.png" height="300" width="300" alt="Zodiac" />
+            <h4>{getZodiacTitle()}</h4>
+            <img className="zodiac-img" src={getZodiacImg()} height="300" width="300" alt="Zodiac" />
           </div>
         </Card>
       </CardGroup>
