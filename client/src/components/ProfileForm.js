@@ -6,8 +6,7 @@ import { Form, Button, Alert, Row, Col } from 'react-bootstrap';
 
 const UpdateProfileForm = () => {
   const [userFormData, setUserFormData] = useState({
-    username: '', planet: '', city: '',
-    zodiac: '', age: '', weight: '', gender: ''
+    username: '', city: '', age: '', gender: ''
   });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -37,8 +36,7 @@ const UpdateProfileForm = () => {
     }
 
     setUserFormData({
-      username: '', planet: '', city: '', zodiac: '',
-      age: '', weight: '', gender: ''
+      username: '', city: '', age: '', gender: ''
     });
   };
 

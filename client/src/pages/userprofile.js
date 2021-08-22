@@ -55,14 +55,20 @@ const UserProfile = () => {
   }
   getStoredOvercast()
 
-  const handleSelect = (event) => {
-    console.log(event);
+  // planet & zodiac
+
+  const handlePlanet = (event) => {
     setValue(event);
-
-    let gender = event
-
-    localStorage.setItem("gender", JSON.stringify(gender));
+    let planet = event
+    localStorage.setItem("planet", JSON.stringify(planet));
   }
+
+  function getPlanet() {
+    let storedPlanet = JSON.parse(localStorage.getItem("planet"));
+    let userPlanet = storedPlanet.charAt(0).toUpperCase() + storedPlanet.slice(1);
+    return userPlanet
+  }
+  getPlanet()
 
   // update profile fcns
   function getUsername() {
@@ -77,11 +83,11 @@ const UserProfile = () => {
   }
   getUserCity()
 
-  function getUserPlanet() {
+  function getUserAge() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
-    return storedUserData.planet
+    return storedUserData.age
   }
-  getUserPlanet()
+  getUserAge()
 
   function getUserZodiac() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
@@ -89,11 +95,7 @@ const UserProfile = () => {
   }
   getUserZodiac()
 
-  function getUserGender() {
-    let storedUserGender = JSON.parse(localStorage.getItem("gender"));
-    return storedUserGender
-  }
-  getUserGender()
+  
 
   return (
     <>
@@ -126,7 +128,7 @@ const UserProfile = () => {
           alignRight
           title="Select Planet"
           id="dropdown-menu-align-left"
-          onSelect={handleSelect}
+          onSelect={handlePlanet}
         >
           <Dropdown.Item eventKey="mercury">Mercury</Dropdown.Item>
           <Dropdown.Item eventKey="venus">Venus</Dropdown.Item>
@@ -139,7 +141,7 @@ const UserProfile = () => {
         </DropdownButton>
 
           <div className="card-body">
-            <h4>{getUserPlanet()}</h4>
+            <h4>{getPlanet()}</h4>
             <img className="planet-img" src="./assets/images/planet-icons.png" height="300" width="300" alt="Planet" />
           </div>
         </Card>
@@ -147,12 +149,12 @@ const UserProfile = () => {
           <h3 className="card-header" id="username-header">{getUsername()}</h3>
           <div className="card-body">
             <h4 className="body-title">{getUserCity()}</h4>
-            <p className="body-text">{getCurrentDate()}</p>
+            <p className="user-text">Age: {getUserAge()}</p>
+            <p className="date-text">{getCurrentDate()}</p>
             <p className="overcast-text">{getStoredOvercast()}</p>
             <p className="temp-text">Temp: {getStoredTemp()}</p>
             <p className="hum-text">Humidity: {getStoredHum()}</p>
             <p className="wind-text">Wind: {getStoredWind()}</p>
-            <p className="user-text">Gender: {getUserGender()}</p>
           </div>
         </Card>
         <Card className="zodiac-card">
@@ -160,7 +162,7 @@ const UserProfile = () => {
           alignRight
           title="Select Zodiac"
           id="dropdown-menu-align-center"
-          onSelect={handleSelect}
+          // onSelect={handleSelect}
         >
           <Dropdown.Item eventKey="aries">Aries</Dropdown.Item>
           <Dropdown.Item eventKey="taurus">Taurus</Dropdown.Item>

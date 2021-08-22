@@ -196,13 +196,12 @@ body {
 }
 
 #dropdown-menu-align-center {
-  background-color: black;
+  background-color: var(--two);
   color: white;
   border: none;
   font-size: 18px;
   margin-top: 15px
 }
-
 
 #planet-btn:hover {
   background-color: white;
@@ -265,10 +264,6 @@ body {
   background-color: black;
 }
 
-.planet-card {
-  background-color: var(--five);
-}
-
 .planet-img {
   width: 100%;
   object-fit: cover;
@@ -279,7 +274,10 @@ body {
 
 .zodiac-img {
   width: 100%;
-  margin: 10px
+  margin: 10px;
+  object-fit: cover;
+  filter: hue-rotate(200deg);
+  border-radius: 30px;
 }
 
 #profile-btn-submit {
@@ -290,6 +288,10 @@ body {
 #profile-btn-submit:hover {
   background-color: var(--three);
   color: white
+}
+
+.date-text {
+  margin-top: 50px;
 }
 
 
