@@ -54,7 +54,7 @@ const UserProfile = () => {
       var useTemp = ""
       return useTemp
     } else
-    return `${storedTemp} F`
+      return `${storedTemp} F`
   }
   getStoredTemp()
 
@@ -64,7 +64,7 @@ const UserProfile = () => {
       var useHum = ""
       return useHum
     } else
-    return `${storedHum} %`
+      return `${storedHum} %`
   }
   getStoredHum()
 
@@ -74,7 +74,7 @@ const UserProfile = () => {
       var useWind = ""
       return useWind
     } else
-    return `${storedWind} mph`
+      return `${storedWind} mph`
   }
   getStoredWind()
 
@@ -84,7 +84,7 @@ const UserProfile = () => {
       var useOvercast = ""
       return useOvercast
     } else
-    return `${storedOvercast}`
+      return `${storedOvercast}`
   }
   getStoredOvercast()
 
@@ -94,7 +94,7 @@ const UserProfile = () => {
       var useIcon = "./assets/images/weather-icon.png"
       return useIcon
     } else
-    return `${storedIcon}`
+      return `${storedIcon}`
   }
   getStoredOvercast()
 
@@ -108,9 +108,8 @@ const UserProfile = () => {
   function getPlanetTitle() {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
     if (storedPlanet === null) {
-      var userPlanet = "Space drifter"
-      return userPlanet
-    } else  
+      return "Space drifter"
+    } else
       var userPlanet = storedPlanet.charAt(0).toUpperCase() + storedPlanet.slice(1);
     return userPlanet
   }
@@ -137,24 +136,24 @@ const UserProfile = () => {
         return `./assets/images/earth.png`
 
       case "mars":
-      return `./assets/images/mars.png`
+        return `./assets/images/mars.png`
 
       case "jupiter":
-      return `./assets/images/jupiter.png`
+        return `./assets/images/jupiter.png`
 
       case "saturn":
-      return `./assets/images/saturn.png`
+        return `./assets/images/saturn.png`
 
       case "uranus":
-      return `./assets/images/uranus.png`
+        return `./assets/images/uranus.png`
 
       case "neptune":
-      return `./assets/images/neptune.png`
+        return `./assets/images/neptune.png`
 
       default:
-      return `./assets/images/planet-icons.png`
-    }   
-  }  
+        return `./assets/images/planet-icons.png`
+    }
+  }
   getPlanetImg()
 
   // zodiac
@@ -167,8 +166,7 @@ const UserProfile = () => {
   function getZodiacTitle() {
     let storedZodiac = JSON.parse(localStorage.getItem("zodiac"));
     if (storedZodiac === null) {
-      var userZodiac = "ET"
-      return userZodiac
+      return "ET"
     }
     var userZodiac = storedZodiac.charAt(0).toUpperCase() + storedZodiac.slice(1);
     return userZodiac
@@ -196,36 +194,36 @@ const UserProfile = () => {
         return `./assets/images/gemini.png`
 
       case "cancer":
-      return `./assets/images/cancer.png`
+        return `./assets/images/cancer.png`
 
       case "leo":
-      return `./assets/images/leo.png`
+        return `./assets/images/leo.png`
 
       case "virgo":
-      return `./assets/images/virgo.png`
+        return `./assets/images/virgo.png`
 
       case "libra":
-      return `./assets/images/libra.png`
+        return `./assets/images/libra.png`
 
       case "scorpio":
-      return `./assets/images/scorpio.png`
+        return `./assets/images/scorpio.png`
 
       case "sagittarius":
-      return `./assets/images/sagittarius.png`
+        return `./assets/images/sagittarius.png`
 
       case "capricorn":
-      return `./assets/images/capricorn.png`
+        return `./assets/images/capricorn.png`
 
       case "aquarius":
-      return `./assets/images/aquarius.png`
+        return `./assets/images/aquarius.png`
 
       case "pisces":
-      return `./assets/images/pisces.png`
+        return `./assets/images/pisces.png`
 
       default:
-      return `./assets/images/zodiac-icons.png`
-    }   
-  }  
+        return `./assets/images/zodiac-icons.png`
+    }
+  }
   getZodiacImg()
 
   // update profile form
@@ -234,8 +232,8 @@ const UserProfile = () => {
     if (storedUserData === null) {
       let username = "Username"
       return username
-    } else 
-    return storedUserData.username
+    } else
+      return storedUserData.username
   }
   getUsername()
 
@@ -260,7 +258,7 @@ const UserProfile = () => {
     if (storedUserData.age === "") {
       return `immortal`
     } else
-    return storedUserData.age
+      return storedUserData.age
   }
   getUserAge()
 
@@ -336,7 +334,7 @@ const UserProfile = () => {
             alignRight
             title="Select Zodiac"
             id="dropdown-menu-align-center"
-          onSelect={handleZodiac}
+            onSelect={handleZodiac}
           >
             <Dropdown.Item eventKey="ET">ET</Dropdown.Item>
             <Dropdown.Item eventKey="aries">Aries</Dropdown.Item>
