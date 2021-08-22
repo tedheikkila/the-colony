@@ -300,6 +300,29 @@ body {
   margin-bottom: 10px;
 }
 
+.age-calculator {
+  width: 80%;
+  margin-left: 25%;
+  margin-left: 25%;
+  margin-bottom: 30px;
+}
+
+.rel-age-btn {
+  background-color: var(--three);
+  color: white;
+  border: none;
+}
+
+#rel-age-input {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.rel-age-btn:hover {
+  background-color: white;
+  color: black
+}
+
 /* footer */
 .t-colony-footer {
   background-color: var(--four);

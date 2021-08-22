@@ -1,3 +1,5 @@
+
+
 export function getCurrentDate(separator = '-') {
 
     let newDate = new Date()
@@ -6,6 +8,8 @@ export function getCurrentDate(separator = '-') {
     let year = newDate.getFullYear();
 
     return `${year}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${date}`
-}
+};
+
+
 
 

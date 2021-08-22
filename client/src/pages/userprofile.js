@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Tab, Button, CardGroup, Container, Card, Alert } from 'react-bootstrap';
+import { Modal, Tab, Button, CardGroup, Container, Card, Alert, Form } from 'react-bootstrap';
 import ProfileForm from '../components/ProfileForm';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -13,6 +13,7 @@ const UserProfile = () => {
   const [planet, setPlanet] = useState('Mercury');
   const [zodiac, setZodiac] = useState('Aries');
   const [showAlert, setShowAlert] = useState(false);
+  const [relAge, setRelAge] = useState('');
 
 
   // weather api call
@@ -262,6 +263,19 @@ const UserProfile = () => {
   }
   getUserAge()
 
+  // function calcRelAge(relAge) {
+  //   console.log(relAge)
+  //   let marsAge = relAge * 0.52 
+  //   // console.log(marsAge)
+  // } 
+
+  // const handleRelAge = (e) => {
+  //   const { name, value } = e.target;
+
+  //   console.log(value)
+
+  // };
+
   return (
     <>
 
@@ -300,7 +314,7 @@ const UserProfile = () => {
             id="dropdown-menu-align-left"
             onSelect={handlePlanet}
           >
-            <Dropdown.Item eventKey="space drifter">Space Drifter</Dropdown.Item>
+            <Dropdown.Item eventKey="space drifter">Space drifter</Dropdown.Item>
             <Dropdown.Item eventKey="mercury">Mercury</Dropdown.Item>
             <Dropdown.Item eventKey="venus">Venus</Dropdown.Item>
             <Dropdown.Item eventKey="earth">Earth</Dropdown.Item>
@@ -357,6 +371,18 @@ const UserProfile = () => {
           </div>
         </Card>
       </CardGroup>
+
+      <Form className="age-calculator">
+      <input
+        type="number"
+        value={relAge}
+        onChange={(e) => setRelAge(e.target.value)}
+        id="rel-age-input"
+      />
+      <Button variant="outline-secondary" id="button-addon1" className="rel-age-btn" >
+          Calculate age on Mars
+      </Button>
+      </Form>
 
     </>
   );
