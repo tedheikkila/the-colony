@@ -13,7 +13,7 @@ const UserProfile = () => {
   const [planet, setPlanet] = useState('Mercury');
   const [zodiac, setZodiac] = useState('Aries');
   const [showAlert, setShowAlert] = useState(false);
-  const [relAge, setRelAge] = useState('');
+  const [relAge, setRelAge] = useState({ age: ''});
 
 
   // weather api call
@@ -276,6 +276,11 @@ const UserProfile = () => {
 
   // };
 
+  const handleRelAge = (event) => {
+    const { name, value } = event.target;
+    setRelAge({ ...relAge, [name]: value });
+  };
+
   return (
     <>
 
@@ -373,15 +378,15 @@ const UserProfile = () => {
       </CardGroup>
 
       <Form className="age-calculator">
-      <input
-        type="number"
-        value={relAge}
-        onChange={(e) => setRelAge(e.target.value)}
-        id="rel-age-input"
-      />
-      <Button variant="outline-secondary" id="button-addon1" className="rel-age-btn" >
-          Calculate age on Mars
-      </Button>
+        <input
+          type="number"
+          value={relAge.age}
+          onChange={handleRelAge}
+          id="rel-age-input"
+        />
+        <Button variant="outline-secondary" id="button-addon1" className="rel-age-btn" >
+            Calculate age on Mars
+        </Button>
       </Form>
 
     </>
