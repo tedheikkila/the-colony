@@ -59,7 +59,7 @@ const UpdateProfileForm = () => {
           <Form.Label htmlFor='city'>City</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your city'
+            placeholder='Your current city'
             name='city'
             onChange={handleInputChange}
             value={userFormData.city}

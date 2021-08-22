@@ -4,15 +4,14 @@ import ProfileForm from '../components/ProfileForm';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 
-// import Auth from '../utils/auth';
 import { getCurrentDate } from '../utils/functions'
 import { searchWeatherApi } from '../utils/API'
 
 const UserProfile = () => {
 
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [planet, setPlanet] = useState('');
-  // const [zodiac, setZodiac] = useState('');
+  const [planet, setPlanet] = useState('Mercury');
+  const [zodiac, setZodiac] = useState('Aries');
   const [showAlert, setShowAlert] = useState(false);
 
 
@@ -20,7 +19,10 @@ const UserProfile = () => {
   const getWeather = async () => {
 
     let storedUserData = JSON.parse(localStorage.getItem("user"));
-    let query = storedUserData.city
+    if (storedUserData === null) {
+      var query = "new york"
+    } else
+      var query = storedUserData.city
 
     try {
       const response = await searchWeatherApi(query);
@@ -66,7 +68,7 @@ const UserProfile = () => {
   }
   getStoredOvercast()
 
-  // planet & zodiac
+  // planet
   const handlePlanet = (event) => {
     setPlanet(event);
     let planet = event
@@ -75,7 +77,11 @@ const UserProfile = () => {
 
   function getPlanetTitle() {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
-    let userPlanet = storedPlanet.charAt(0).toUpperCase() + storedPlanet.slice(1);
+    if (storedPlanet === null) {
+      var userPlanet = "Mercury"
+      return userPlanet
+    } else  
+      var userPlanet = storedPlanet.charAt(0).toUpperCase() + storedPlanet.slice(1);
     return userPlanet
   }
   getPlanetTitle()
@@ -84,7 +90,7 @@ const UserProfile = () => {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
 
     switch (storedPlanet) {
-      case "space drifter" || "":
+      case "space drifter" || "" || null:
         return `./assets/images/planet-icons.png`
 
       case "mercury":
@@ -114,27 +120,41 @@ const UserProfile = () => {
   }  
   getPlanetImg()
 
-  // const handleZodiac = (event) => {
-  //   setZodiac(event);
-  //   let zodiac = event
-  //   localStorage.setItem("zodiac", JSON.stringify(zodiac));
-  // }
+  // zodiac
+  const handleZodiac = (event) => {
+    setZodiac(event);
+    let zodiac = event
+    localStorage.setItem("zodiac", JSON.stringify(zodiac));
+  }
 
-  // function getZodiac() {
-  //   let storedZodiac = JSON.parse(localStorage.getItem("zodiac"));
-  //   return storedZodiac
-  // }
-  // getZodiac()
+  function getZodiac() {
+    let storedZodiac = JSON.parse(localStorage.getItem("zodiac"));
+    if (storedZodiac === null) {
+      var userZodiac = "Aries"
+      return userZodiac
+    }
+    var userZodiac = storedZodiac.charAt(0).toUpperCase() + storedZodiac.slice(1);
+    return userZodiac
+  }
+  getZodiac()
 
   // update profile form
   function getUsername() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
+    if (storedUserData === null) {
+      let username = "Username"
+      return username
+    } else 
     return storedUserData.username
   }
   getUsername()
 
   function getUserCity() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
+    if (storedUserData === null) {
+      let city = "New York"
+      return city
+    }
     let storedCity = storedUserData.city
     let userCity = storedCity.charAt(0).toUpperCase() + storedCity.slice(1);
     return userCity
@@ -143,6 +163,10 @@ const UserProfile = () => {
 
   function getUserAge() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
+    if (storedUserData === null) {
+      let age = "TBD"
+      return age
+    }
     if (storedUserData.age === "") {
       return `immortal`
     } else
@@ -221,7 +245,7 @@ const UserProfile = () => {
             alignRight
             title="Select Zodiac"
             id="dropdown-menu-align-center"
-          // onSelect={handleZodiac}
+          onSelect={handleZodiac}
           >
             <Dropdown.Item eventKey="aries">Aries</Dropdown.Item>
             <Dropdown.Item eventKey="taurus">Taurus</Dropdown.Item>
@@ -238,7 +262,7 @@ const UserProfile = () => {
           </DropdownButton>
 
           <div className="card-body">
-            {/* <h4>{getZodiac()}</h4> */}
+            <h4>{getZodiac()}</h4>
             <img className="zodiac-img" src="./assets/images/zodiac-icons.png" height="300" width="300" alt="Zodiac" />
           </div>
         </Card>
