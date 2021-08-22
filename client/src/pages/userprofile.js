@@ -108,7 +108,7 @@ const UserProfile = () => {
   function getPlanetTitle() {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
     if (storedPlanet === null) {
-      var userPlanet = "Mercury"
+      var userPlanet = "Space drifter"
       return userPlanet
     } else  
       var userPlanet = storedPlanet.charAt(0).toUpperCase() + storedPlanet.slice(1);
@@ -167,7 +167,7 @@ const UserProfile = () => {
   function getZodiacTitle() {
     let storedZodiac = JSON.parse(localStorage.getItem("zodiac"));
     if (storedZodiac === null) {
-      var userZodiac = "Aries"
+      var userZodiac = "ET"
       return userZodiac
     }
     var userZodiac = storedZodiac.charAt(0).toUpperCase() + storedZodiac.slice(1);

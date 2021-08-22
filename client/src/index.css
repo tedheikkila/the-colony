@@ -29,7 +29,7 @@
 }
 
 #t-nav-title:hover {
-  text-decoration: underline;
+  text-decoration: underline 5px;
 }
 
 #t-nav-link {
@@ -47,13 +47,9 @@
   margin-right: 150px
 }
 
-#t-nav-link-profile:hover {
-  text-decoration: underline;
-}
 
-
-#t-nav-link:hover, #t-nav-link-feed:hover {
-  text-decoration: underline;
+#t-nav-link:hover, #t-nav-link-feed:hover, #t-nav-link-profile:hover {
+  text-decoration: underline 5px
 }
 
 #t-login-modal-btn, #t-signup-modal-btn {
