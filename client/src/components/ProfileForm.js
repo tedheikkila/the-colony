@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
+import { Form, Button, Alert, Row, Col } from 'react-bootstrap';
+
 // import { updateUser } from '../utils/API';
 // import Auth from '../utils/auth';
 
@@ -12,17 +11,8 @@ const UpdateProfileForm = () => {
   });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [value, setValue] = useState('');
-
-  const handleSelect = (event) => {
-    console.log(event);
-    setValue(event);
 
 
-
-    localStorage.setItem("gender", JSON.stringify(event));
-
-  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -41,16 +31,6 @@ const UpdateProfileForm = () => {
     try {
       localStorage.setItem("user", JSON.stringify(userFormData));
 
-      // const response = await updateUser(userFormData);
-
-      // if (!response.ok) {
-      //   throw new Error('Something went wrong');
-      // }
-
-      // not sure if this is needed
-      // const { token, user } = await response.json();
-      // console.log(user);
-      // Auth.login(token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -64,9 +44,7 @@ const UpdateProfileForm = () => {
 
   return (
     <>
-      {/* needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your update
         </Alert>
@@ -97,47 +75,39 @@ const UpdateProfileForm = () => {
           <Form.Control.Feedback type='invalid'>City is required</Form.Control.Feedback>
         </Form.Group>
 
-        <DropdownButton
-          alignRight
-          title="Choose Gender"
-          id="dropdown-menu-align-right"
-          onSelect={handleSelect}
-          value={userFormData.gender}
-        >
-          <Dropdown.Item eventKey="male">Male</Dropdown.Item>
-          <Dropdown.Item eventKey="female">Female</Dropdown.Item>
-        </DropdownButton>
-
-        <br></br>
-
         <Form.Group>
-          <Form.Label htmlFor='planet'>Choose Planet</Form.Label>
+          <Form.Label htmlFor='age'>Age (optional)</Form.Label>
           <Form.Control
-            type='text'
-            placeholder='Your favorite planet'
-            name='planet'
+            type='number'
+            placeholder='Your age'
+            name='age'
             onChange={handleInputChange}
-            value={userFormData.planet}
-            required
+            value={userFormData.age}
           />
-          <Form.Control.Feedback type='invalid'>Planet is required</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor='zodiac'>Choose Zodiac</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your zodiac sign'
-            name='zodiac'
-            onChange={handleInputChange}
-            value={userFormData.zodiac}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Zodiac is required</Form.Control.Feedback>
+        <Form.Group as={Row} className="mb-3">
+          <Form.Label as="legend" column sm={2}>
+            Gender (optional)
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Check
+              type="radio"
+              label="Male"
+              name="formHorizontalRadios"
+              id="formHorizontalRadios1"
+            />
+            <Form.Check
+              type="radio"
+              label="Female"
+              name="formHorizontalRadios"
+              id="formHorizontalRadios2"
+            />
+          </Col>
         </Form.Group>
 
         <Button
-          disabled={!(userFormData.username && userFormData.planet && userFormData.city && userFormData.zodiac)}
+          disabled={!(userFormData.username && userFormData.city)}
           type='submit'
           variant='success'
           id="profile-btn-submit">
