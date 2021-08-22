@@ -275,7 +275,7 @@ body {
 .planet-img {
   width: 100%;
   object-fit: cover;
-  filter: saturate(138%);
+  filter: saturate(230%);
   border-radius: 30px;
   margin: 10px
 }
@@ -298,10 +298,9 @@ body {
   color: white
 }
 
-.date-text {
-  margin-top: 50px;
+.icon-text {
+  filter: hue-rotate(180deg)
 }
-
 
 /* footer */
 .t-colony-footer {

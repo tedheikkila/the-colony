@@ -31,10 +31,13 @@ const UserProfile = () => {
       let currentHumidity = data.main.humidity
       let currentWind = data.wind.speed
       let currentOvercast = data.weather[0].description
+      let currentIcon = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
+
       localStorage.setItem("temp", JSON.stringify(currentTemp));
       localStorage.setItem("hum", JSON.stringify(currentHumidity));
       localStorage.setItem("wind", JSON.stringify(currentWind));
       localStorage.setItem("overcast", JSON.stringify(currentOvercast));
+      localStorage.setItem("icon", JSON.stringify(currentIcon));
 
     } catch (err) {
       console.error(err);
@@ -65,6 +68,12 @@ const UserProfile = () => {
   function getStoredOvercast() {
     let storedOvercast = JSON.parse(localStorage.getItem("overcast"));
     return `${storedOvercast}`
+  }
+  getStoredOvercast()
+
+  function getStoredIcon() {
+    let storedIcon = JSON.parse(localStorage.getItem("icon"));
+    return `${storedIcon}`
   }
   getStoredOvercast()
 
@@ -288,7 +297,8 @@ const UserProfile = () => {
             <h4 className="body-title">{getUserCity()}</h4>
             <p className="user-text">Age: {getUserAge()}</p>
             <p className="date-text">{getCurrentDate()}</p>
-            <p className="overcast-text">{getStoredOvercast()}</p>
+            <span className="overcast-text">{getStoredOvercast()}</span>
+            <img className="icon-text" src={getStoredIcon()} width="100" height="100"></img>
             <p className="temp-text">Temp: {getStoredTemp()}</p>
             <p className="hum-text">Humidity: {getStoredHum()}</p>
             <p className="wind-text">Wind: {getStoredWind()}</p>
