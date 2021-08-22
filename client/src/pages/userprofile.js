@@ -20,7 +20,7 @@ const UserProfile = () => {
 
     let storedUserData = JSON.parse(localStorage.getItem("user"));
     if (storedUserData === null) {
-      var query = "new york"
+      var query = "minneapolis"
     } else
       var query = storedUserData.city
 
@@ -49,30 +49,51 @@ const UserProfile = () => {
   // weather retrievals
   function getStoredTemp() {
     let storedTemp = JSON.parse(localStorage.getItem("temp"));
+
+    if (storedTemp === null) {
+      var useTemp = ""
+      return useTemp
+    } else
     return `${storedTemp} F`
   }
   getStoredTemp()
 
   function getStoredHum() {
     let storedHum = JSON.parse(localStorage.getItem("hum"));
+    if (storedHum === null) {
+      var useHum = ""
+      return useHum
+    } else
     return `${storedHum} %`
   }
   getStoredHum()
 
   function getStoredWind() {
     let storedWind = JSON.parse(localStorage.getItem("wind"));
+    if (storedWind === null) {
+      var useWind = ""
+      return useWind
+    } else
     return `${storedWind} mph`
   }
   getStoredWind()
 
   function getStoredOvercast() {
     let storedOvercast = JSON.parse(localStorage.getItem("overcast"));
+    if (storedOvercast === null) {
+      var useOvercast = ""
+      return useOvercast
+    } else
     return `${storedOvercast}`
   }
   getStoredOvercast()
 
   function getStoredIcon() {
     let storedIcon = JSON.parse(localStorage.getItem("icon"));
+    if (storedIcon === null) {
+      var useIcon = "./assets/images/weather-icon.png"
+      return useIcon
+    } else
     return `${storedIcon}`
   }
   getStoredOvercast()
@@ -129,6 +150,9 @@ const UserProfile = () => {
 
       case "neptune":
       return `./assets/images/neptune.png`
+
+      default:
+      return `./assets/images/planet-icons.png`
     }   
   }  
   getPlanetImg()
@@ -197,6 +221,9 @@ const UserProfile = () => {
 
       case "pisces":
       return `./assets/images/pisces.png`
+
+      default:
+      return `./assets/images/zodiac-icons.png`
     }   
   }  
   getZodiacImg()
@@ -215,7 +242,7 @@ const UserProfile = () => {
   function getUserCity() {
     let storedUserData = JSON.parse(localStorage.getItem("user"));
     if (storedUserData === null) {
-      let city = "New York"
+      let city = "Minneapolis"
       return city
     }
     let storedCity = storedUserData.city
@@ -298,7 +325,7 @@ const UserProfile = () => {
             <p className="user-text">Age: {getUserAge()}</p>
             <p className="date-text">{getCurrentDate()}</p>
             <span className="overcast-text">{getStoredOvercast()}</span>
-            <img className="icon-text" src={getStoredIcon()} width="100" height="100"></img>
+            <img className="icon-text" src={getStoredIcon()} width="70" height="70" alt="Weather Icon"></img>
             <p className="temp-text">Temp: {getStoredTemp()}</p>
             <p className="hum-text">Humidity: {getStoredHum()}</p>
             <p className="wind-text">Wind: {getStoredWind()}</p>
