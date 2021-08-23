@@ -67,7 +67,7 @@ function RoverProfile() {
                             <h5 className="card-header">Mars Rover Stats</h5>
                             <div className="card-body">
                                 <p className="card-text">
-                                    First landing: July 4th, 1997 (Mars Pathfinder)
+                                    First landing: July 4th, 1997 (Pathfinder)
                                 </p>
                             </div>
                         </div>
