@@ -7,6 +7,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import { getCurrentDate } from '../utils/functions'
 import { searchWeatherApi } from '../utils/API'
 
+// dropdowns for planets and zodiacs; OpenWeather API call
+// calculates Mars age and weight
 const UserProfile = () => {
 
   const [showProfileModal, setShowProfileModal] = useState(false);
@@ -49,7 +51,6 @@ const UserProfile = () => {
   };
   getWeather()
 
-  // weather retrievals
   function getStoredTemp() {
     let storedTemp = JSON.parse(localStorage.getItem("temp"));
 

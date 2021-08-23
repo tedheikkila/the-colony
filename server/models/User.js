@@ -3,9 +3,6 @@ const bcrypt = require('bcrypt');
 
 const Post = require('./Post');
 
-
-// const postSchema = require('./Post');
-
 const userSchema = new Schema(
   {
     username: {
@@ -23,7 +20,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-
     name: {
       type: String,
     },
@@ -64,10 +60,6 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get `postCount` (# of their saved posts)
-// userSchema.virtual('postCount').get(function () {
-//   return this.savedPosts.length;
-// });
 const User = model('User', userSchema);
 
 module.exports = User;

@@ -1,7 +1,7 @@
 import React from 'react';
-
 import '../index.css'
 
+// footer component (GitHub link to repo's home & copyrights)
 const Footer = () => {
   
     return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
+// captures modal info (username, city, age) and sends to userprofile
 const UpdateProfileForm = () => {
   const [userFormData, setUserFormData] = useState({
     username: '', city: '', age: ''

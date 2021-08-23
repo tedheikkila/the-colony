@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const commentSchema = require('./Comment')
 
 const postSchema = new Schema({
 
@@ -20,10 +19,7 @@ const postSchema = new Schema({
   date: { 
     type: Date, 
     default: Date.now
-  },
-  comments: [
-    commentSchema
-  ]
+  }
 });
 
 

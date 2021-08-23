@@ -1,43 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-
+// static rover/home page 
+// displays current Rover's profile pic and stats
+// 3x3 image matrix
 function RoverProfile() {
 
-    const [roverImage, setRoverImage] = useState([]);
+    // const [roverImage, setRoverImage] = useState([]);
 
-    useEffect(() => {
+    // determined that NASA' API call images weren't distinct/different enough
+    // useEffect(() => {
 
-        searchRoverImg();
+    // searchRoverImg();
 
-        async function searchRoverImg() {
-            const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=v1vqd0PdgPpMhpKjaxObGA6dQtpp5g5KweeYDx7O')
-            const data = await response.json();
+    // async function searchRoverImg() {
+    //     const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=v1vqd0PdgPpMhpKjaxObGA6dQtpp5g5KweeYDx7O')
+    //     const data = await response.json();
 
-            setRoverImage(data);
-            const arrayCopy = roverImage.slice(0,9);
-            setRoverImage(arrayCopy);
-            console.log(roverImage);
-            // console.log(data);
-            for (var i = 0; i < 8; i++) {
+    //     setRoverImage(data);
+    //     const arrayCopy = roverImage.slice(0,9);
+    //     setRoverImage(arrayCopy);
+    //     for (var i = 0; i < 8; i++) {
 
-                const imageData = data.photos[i].img_src;
-                console.log(imageData);
-                let storedImage = JSON.parse(localStorage.getItem("image"));
-                let restoredImage = localStorage.setItem("image", JSON.stringify(imageData));
-                setRoverImage()            }
+    //         const imageData = data.photos[i].img_src;
+    //         console.log(imageData);
+    //         let storedImage = JSON.parse(localStorage.getItem("image"));
+    //         let restoredImage = localStorage.setItem("image", JSON.stringify(imageData));
+    //         setRoverImage()            }
 
-        }
-    }, []);
+    // }
+    // }, []);
 
-    function getStoredImg() {
-        let storedImage = JSON.parse(localStorage.getItem("image"));
-        if (image === null) {
-            var image = ""
-            return image
-        } else
-            return `${storedImage} `
-    }
-    getStoredImg();
+    // function getStoredImg() {
+    //     let storedImage = JSON.parse(localStorage.getItem("image"));
+    //     if (image === null) {
+    //         var image = ""
+    //         return image
+    //     } else
+    //         return `${storedImage} `
+    // }
+    // getStoredImg();
 
     return (
         <div>
@@ -69,7 +70,7 @@ function RoverProfile() {
                                 <p className="card-text">Mission: exploring Jezero crater</p>
                                 <p className="card-text">First landing: Feb 18th, 2021</p>
                                 <p className="card-text">Weight on Earth: 2,260 lbs</p>
-                                <p className="card-text">Features: 
+                                <p className="card-text">Features:
                                     <li>Generates heat from plutonium</li>
                                     <li>Assesses minerals on surface</li>
                                     <li>Advanced camera system</li>
@@ -81,16 +82,16 @@ function RoverProfile() {
             </div>
             <div>
                 <div className="grid" id="imageDiv">
-                  
-            <img alt="Mars" width="200" height="200" src="./assets/images/mars.png"/>
-              <img alt="Mars" src="./assets/ripples.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/meteorite.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/tracks.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/crystals.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/rock.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/portrait.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/mountsharp.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/slates.jpg" width="200" height="200" />
+
+                    <img alt="Mars" width="200" height="200" src="./assets/images/mars.png" />
+                    <img alt="Mars" src="./assets/ripples.jpg" width="200" height="200" />
+                    <img alt="Mars" src="./assets/meteorite.jpg" width="200" height="200" />
+                    <img alt="Mars" src="./assets/tracks.jpg" width="200" height="200" />
+                    <img alt="Mars" src="./assets/crystals.jpg" width="200" height="200" />
+                    <img alt="Mars" src="./assets/rock.jpg" width="200" height="200" />
+                    <img alt="Mars" src="./assets/portrait.jpg" width="200" height="200" />
+                    <img alt="Mars" src="./assets/mountsharp.jpg" width="200" height="200" />
+                    <img alt="Mars" src="./assets/slates.jpg" width="200" height="200" />
                 </div>
             </div>
         </div>

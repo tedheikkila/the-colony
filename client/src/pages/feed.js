@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Button, Form, Jumbotron, Card } from 'react-bootstrap';
 
-import { createPost, addPostToUser, getFeed } from '../utils/API';
+import { createPost, getFeed } from '../utils/API';
 import { getMe } from '../utils/API';
 import Auth from '../utils/auth';
 
+// getting all the feed data, submits posts to the db withAuth (via user)
+// city feed btn filters posts by the user's city
 const Feed = () => {
   const [userData, setUserData] = useState({});
   const [feed, setFeed] = useState([]);
@@ -15,9 +17,9 @@ const Feed = () => {
         const response = await getFeed();
 
         const newFeed = await response.json()
-        // console.log(newFeed);
+
         setFeed(newFeed.reverse());
-        // console.log(feed)
+
       } catch (err) {
         console.error(err);
       }
@@ -30,20 +32,14 @@ const Feed = () => {
       if (!token) {
         return false;
       }
-
       const response = await getMe(token);
-      // console.log(response);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
-
       const user = await response.json();
-      // console.log(user)
 
-      // console.log(userData)
       setUserData({ ...user, name: user.username, city: user.city });
-      // console.log(userData)
 
     } catch (err) {
       console.error(err);
@@ -65,7 +61,6 @@ const Feed = () => {
     const filterd = feed.filter( post => {
       return post.city === userData.city
     })
-    console.log(JSON.stringify(filterd))
     setFeed(filterd);
   }
 
@@ -82,17 +77,13 @@ const Feed = () => {
       }
 
       const post = await response.json();
-      console.log(post);
-      // const updatedUserData = await addPostToUser(post)
     } catch (err) {
       console.error(err);
     }
-    // console.log(postFormData)
 
     setPostFormData({ title: '', content: '', name: '', city: '' });
     window.location.reload(false);
   };
-  console.log(userData)
 
   return (
     <>
@@ -155,11 +146,6 @@ const Feed = () => {
               </Card>
             )
           })}
-          {/* <Form className="post-form" onSubmit={handleFormSubmit} >
-            <textarea className="post-title" placeholder="Post title"></textarea>
-            <textarea className="post-text" placeholder="Send message to Feed"></textarea>
-            <Button className="btn btn-primary" type="submit" id="submit-post">Send it</Button>
-          </Form> */}
         </Container>
       </div>
     </>

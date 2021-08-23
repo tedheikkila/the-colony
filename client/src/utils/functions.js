@@ -1,5 +1,5 @@
 
-
+// gets current date (2021-08-30)
 export function getCurrentDate(separator = '-') {
 
     let newDate = new Date()
