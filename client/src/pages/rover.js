@@ -1,10 +1,4 @@
-import React, { } from 'react';
-import { } from 'react-bootstrap';
-
-
-
-
-
+import React, { useState, useEffect } from 'react';
 
 
 function RoverProfile() {
@@ -70,12 +64,10 @@ function RoverProfile() {
                     </div>
                     <div className="col-md-4">
                         <div className="card stats border">
-                            <h5 className="card-header">
-                                Mars Stats
-                            </h5>
+                            <h5 className="card-header">Mars Rover Stats</h5>
                             <div className="card-body">
                                 <p className="card-text">
-                                    Mars stats will go here
+                                    First landing: July 4th, 1997 (Mars Pathfinder)
                                 </p>
                             </div>
                         </div>
@@ -84,12 +76,8 @@ function RoverProfile() {
             </div>
             <div>
                 <div className="grid" id="imageDiv">
-                    {/* {roverImage.map((image) => {
-                        return (
-                            <img key={image.id} src={image.img_src} alt="Mars" width="200" height="200" />
-                        )
-                    })} */}
-                    {/* <img alt="Mars" width="200" height="200" src={getStoredImg()}/>
+                  
+            <img alt="Mars" width="200" height="200" src="./assets/images/mars.png"/>
               <img alt="Mars" src="./assets/ripples.jpg" width="200" height="200" />
               <img alt="Mars" src="./assets/meteorite.jpg" width="200" height="200" />
               <img alt="Mars" src="./assets/tracks.jpg" width="200" height="200" />
@@ -97,7 +85,7 @@ function RoverProfile() {
               <img alt="Mars" src="./assets/rock.jpg" width="200" height="200" />
               <img alt="Mars" src="./assets/portrait.jpg" width="200" height="200" />
               <img alt="Mars" src="./assets/mountsharp.jpg" width="200" height="200" />
-              <img alt="Mars" src="./assets/slates.jpg" width="200" height="200" /> */}
+              <img alt="Mars" src="./assets/slates.jpg" width="200" height="200" />
                 </div>
             </div>
         </div>

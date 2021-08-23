@@ -12,7 +12,7 @@
 
 /* root id */
 #root {
-  background-color: var(--seven);
+  background-color: var(--five);
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -25,7 +25,7 @@
 }
 
 #t-nav-title {
-  color: var(--six);
+  color: var(--five);
   font-size: 28px;
 }
 
@@ -34,18 +34,18 @@
 }
 
 #t-nav-link {
-  color: var(--six);
+  color: var(--five);
   font-size: 18px;
 }
 
 #t-nav-link-feed {
-  color: var(--six);
+  color: var(--five);
   margin-right: 200px
 }
 
 #t-nav-link-profile {
-  margin-right: 150px
-  color: var(--six);
+  margin-right: 150px;
+  color: var(--five);
 }
 
 
@@ -67,7 +67,7 @@
 .the-feed {
   margin-left: 30%;
   margin-top: 5%;
-  color: var(--five);
+  color: var(--six);
 }
 
 .post-form {
@@ -85,67 +85,6 @@
   width: 100%;
   text-indent: 20px;
   height: 100px;
-}
-
-body {
-  margin: none;
-}
-
-.round {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-
-.profileinfo {
-  float: right;
-  margin: 0 1.5%;
-  padding-right: 20%
-}
-
-.images {
-  display:flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-  text-align: center;
-  width: 90%;
-  margin-left: 5%;
-  margin-right:5%;
-  margin-top: 5%;
-}
-
-.images img {
-  margin: 2%;
-}
-
-.planet {
-  width: 60%;
-  height: 75%;
-  margin-left: 30%;
-} 
-.mainpic {
-  border-radius: 15%;
-}
-.border {
-  border: 250px, solid, var(--five);
-}
-.page-header {
-  text-align: center;
-  color: var(--five);
-}
-
-.margin {
-  margin-bottom: 25px;
-}
-
-.card {
-  background-color: var(--three);
-}
-
-.stats {
-  padding-bottom: 100px;
-  margin-right: 5%;
-  border-radius: 5%;
 }
 
 #submit-post {
@@ -184,8 +123,76 @@ body {
 .feeds-sidebar {
   background-color: var(--one);
   font-size: 30px;
+  color: black;
+}
+
+/* rover page */ 
+
+body {
+  margin: none;
+}
+
+.round {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.profileinfo {
+  float: right;
+  margin: 0 1.5%;
+  padding-right: 20%
+}
+
+.images {
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-right:5%;
+  margin-top: 5%;
+}
+
+.images img {
+  margin: 2%;
+}
+
+.planet {
+  width: 60%;
+  height: 75%;
+  margin-left: 30%;
+} 
+
+.mainpic {
+  border-radius: 15%;
+}
+
+.border {
+  border: 250px, solid, var(--five);
+}
+
+.page-header {
+  text-align: center;
   color: var(--six);
 }
+
+.margin {
+  margin-bottom: 25px;
+}
+
+.card {
+  background-color: var(--three);
+}
+
+.stats {
+  padding-bottom: 100px;
+  margin-right: 5%;
+  border-radius: 5%;
+}
+
+
 
 /* user profile */
 #profile-alert {
@@ -350,6 +357,7 @@ body {
 
 .t-footer-copyright {
   margin: 2%;
+  color: var(--five)
 }
 
 #t-footer-icon {
