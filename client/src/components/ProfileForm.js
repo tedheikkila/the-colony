@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-import { updateUser } from '../utils/API';
-import Auth from '../utils/auth';
-
 const UpdateProfileForm = () => {
-  const [userFormData, setUserFormData] = useState({ username: '', planet: '', city: '', age: '', weight:'', gender: '' });
+  const [userFormData, setUserFormData] = useState({
+    username: '', city: '', age: ''
+  });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -24,32 +23,21 @@ const UpdateProfileForm = () => {
     }
 
     try {
-      const response = await updateUser(userFormData);
+      localStorage.setItem("user", JSON.stringify(userFormData));
 
-      if (!response.ok) {
-        throw new Error('Something went wrong');
-      }
-
-      // not sure if this is needed
-      const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
     }
 
     setUserFormData({
-        username: '', planet: '', city: '', 
-        age: '', weight:'', gender: '' 
+      username: '', city: '', age: ''
     });
   };
 
   return (
     <>
-      {/* needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your update
         </Alert>
@@ -68,23 +56,10 @@ const UpdateProfileForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='planet'>Planet</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your planet'
-            name='planet'
-            onChange={handleInputChange}
-            value={userFormData.planet}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Planet is required</Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group>
           <Form.Label htmlFor='city'>City</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your city'
+            placeholder='Your current city'
             name='city'
             onChange={handleInputChange}
             value={userFormData.city}
@@ -94,42 +69,21 @@ const UpdateProfileForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='age'>Age</Form.Label>
+          <Form.Label htmlFor='age'>Age (optional)</Form.Label>
           <Form.Control
-            type='text'
-            placeholder='Your age (optional)'
+            type='number'
+            placeholder='Your age'
             name='age'
             onChange={handleInputChange}
             value={userFormData.age}
           />
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor='weight'>Weight</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your weight (optional)'
-            name='weight'
-            onChange={handleInputChange}
-            value={userFormData.weight}
-          />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label htmlFor='gender'>Gender</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Your gender (optional)'
-            name='gender'
-            onChange={handleInputChange}
-            value={userFormData.gender}
-          />
-        </Form.Group>
-
         <Button
-          disabled={!(userFormData.username && userFormData.planet && userFormData.city)}
+          disabled={!(userFormData.username && userFormData.city)}
           type='submit'
-          variant='success'>
+          variant='success'
+          id="profile-btn-submit">
           Submit
         </Button>
       </Form>

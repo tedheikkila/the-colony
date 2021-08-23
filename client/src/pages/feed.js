@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { } from 'react';
 import { Container, Button, Form, Jumbotron} from 'react-bootstrap';
 
 // import { getMe, deletePost } from '../utils/API';
