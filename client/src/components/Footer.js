@@ -12,7 +12,7 @@ const Footer = () => {
                     <a
                         href="https://github.com/tedheikkila/the-colony"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         onClick={() => ('')}
                     >
                         <img id="t-footer-icon" src="./assets/icons/github.png" width="60" height="60" alt="GitHub Repo" />

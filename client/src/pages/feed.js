@@ -5,7 +5,6 @@ import { createPost, addPostToUser, getFeed } from '../utils/API';
 import { getMe } from '../utils/API';
 import Auth from '../utils/auth';
 
-
 const Feed = () => {
   const [userData, setUserData] = useState({});
   const [feed, setFeed] = useState([]);

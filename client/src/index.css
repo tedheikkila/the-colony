@@ -6,44 +6,51 @@
   --four: #e77d11;
   --five: #0e0e49;
   --six: #9ce0fc;
+  --seven: rgb(37, 32, 28);
+
 }
 
 /* root id */
 #root {
-  background-color: var(--six);
+  background-color: var(--five);
   font-family: 'Orbitron', sans-serif;
 }
-
 
 /* nav bar */
 .t-nav-bar {
   background-color: var(--four);
   padding: 30px;
-  border-bottom: 20px solid var(--five);
+  border-bottom: 20px solid var(--six);
   font-size: 18px;
 }
 
 #t-nav-title {
-  color: black;
+  color: var(--five);
   font-size: 28px;
 }
 
 #t-nav-title:hover {
-  text-decoration: underline;
+  text-decoration: underline 5px;
 }
 
 #t-nav-link {
-  color: black;
+  color: var(--five);
   font-size: 18px;
 }
 
 #t-nav-link-feed {
-  color: black;
-  margin-right: 300px
+  color: var(--five);
+  margin-right: 200px
 }
 
-#t-nav-link:hover, #t-nav-link-feed:hover {
-  text-decoration: underline;
+#t-nav-link-profile {
+  margin-right: 150px;
+  color: var(--five);
+}
+
+
+#t-nav-link:hover, #t-nav-link-feed:hover, #t-nav-link-profile:hover {
+  text-decoration: underline 5px
 }
 
 #t-login-modal-btn, #t-signup-modal-btn {
@@ -60,6 +67,7 @@
 .the-feed {
   margin-left: 30%;
   margin-top: 5%;
+  color: var(--six);
 }
 
 .post-form {
@@ -79,56 +87,6 @@
   height: 100px;
 }
 
-
-body {
-  margin: none;
-}
-
-.round {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-
-.profileinfo {
-  float: right;
-  margin: 0 1.5%;
-  padding-right: 20%
-}
-
-.images {
-  display:flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-  text-align: center;
-  width: 90%;
-  margin-left: 5%;
-  margin-right:5%;
-  margin-top: 5%;
-}
-.images img {
-  margin: 2%;
-}
-.item {
-  width: 45%;
-  height: 100%;
-  margin-left: 15%;
-} 
-
-.page-header {
-  text-align: center;
-}
-.margin {
-  margin-bottom: 25px;
-}
-.card {
-  background-color: var(--three);
-}
-.stats {
-  margin-right: 5%;
-  margin-left: 5%;
-  padding-bottom: 150px;
-}
 #submit-post {
   width: 100%;
   background-color: var(--two);
@@ -165,13 +123,232 @@ body {
 .feeds-sidebar {
   background-color: var(--one);
   font-size: 30px;
+  color: black;
+}
+
+/* rover page */ 
+
+body {
+  margin: none;
+}
+
+.round {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.profileinfo {
+  float: right;
+  margin: 0 1.5%;
+  padding-right: 20%
+}
+
+.images {
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-right:5%;
+  margin-top: 5%;
+}
+
+.images img {
+  margin: 2%;
+}
+
+.planet {
+  width: 60%;
+  height: 75%;
+  margin-left: 30%;
+} 
+
+.mainpic {
+  border-radius: 15%;
+}
+
+.border {
+  border: 250px, solid, var(--five);
+}
+
+.page-header {
+  text-align: center;
+  color: var(--six);
+}
+
+.margin {
+  margin-bottom: 25px;
+}
+
+.card {
+  background-color: var(--three);
+}
+
+.stats {
+  padding-bottom: 100px;
+  margin-right: 5%;
+  border-radius: 5%;
+}
+
+
+
+/* user profile */
+#profile-alert {
+  margin-top: 20px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center
+}
+
+.edit-profile-btn-ctn {
+  text-align: center;
+}
+
+#dropdown-menu-align-left {
+  margin-top: 15px;
+  background-color: var(--five);
+  color: white;
+  border: none;
+  font-size: 18px;
+  margin-left: 15px;
+  padding: 10px
+}
+
+#dropdown-menu-align-center {
+  background-color: rgb(0, 89, 255);
+  color: white;
+  border: none;
+  font-size: 18px;
+  margin-top: 15px;
+  margin-left: 15px;
+  padding: 10px
+}
+
+#planet-btn:hover {
+  background-color: white;
+  color: black
+}
+
+#edit-profile-btn {
+  background-color: var(--three);
+  color: white;
+  border: solid 3px white;
+  margin: 30px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+#edit-profile-btn:hover {
+  background-color: white;
+  color: black
+}
+
+.profile-cardgroup {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  margin-top: -2%;
+}
+
+#planet-header, #zodiac-header {
+  background-color: black;
+  color: white;
+  border-bottom: solid white 5px
+}
+
+#planet-header {
+  background-color: var(--five)
+}
+
+#username-header {
+  border-bottom: solid black 5px;
+}
+
+#username-header {
+  background-color: var(--one);
+  color: black
+}
+
+.planet-card, .username-card, .zodiac-card {
+  margin: 5%;
+  background-color: var(--one);
+}
+
+.planet-card, .zodiac-card {
+  background-color: var(--seven);
+  margin-bottom: -50px;
+  color: white;
+  border-top: solid 5px white;
+  border-bottom: solid 5px white;
+}
+
+.planet-img {
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(230%);
+  border-radius: 30px;
+  margin: 10px
+}
+
+.zodiac-img {
+  width: 100%;
+  margin: 10px;
+  object-fit: cover;
+  filter: saturate(1000%);
+  border-radius: 30px;
+}
+
+#profile-btn-submit {
+  background-color: var(--two);
+  border: none
+}
+
+#profile-btn-submit:hover {
+  background-color: var(--three);
+  color: white
+}
+
+.icon-text {
+  filter: hue-rotate(180deg);
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.age-calculator {
+  width: 70%;
+  margin-left: 30%;
+  margin-left: 30%;
+  margin-bottom: 30px;
+  margin-top: -30px;
+  font-size: 20px;
+}
+
+.rel-age-btn {
+  background-color: var(--three);
+  color: white;
+  border: none;
+  padding: 25px;
+}
+
+#rel-age-input {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.rel-age-btn:hover {
+  background-color: var(--three);
+  color: white;
 }
 
 
 /* footer */
 .t-colony-footer {
   background-color: var(--four);
-  border-top: 20px solid var(--five);
+  border-top: 20px solid var(--six);
 }
 
 .t-footer-item {
@@ -180,6 +357,7 @@ body {
 
 .t-footer-copyright {
   margin: 2%;
+  color: var(--five)
 }
 
 #t-footer-icon {
@@ -190,16 +368,21 @@ body {
   box-shadow: 5px 5px 30px 5px var(--one)
 }
 
-/* screens */
-@media screen and (max-width: 600px) {
-  .list-container .card
-   {
-     width: 150px;
-  }
-  
-} 
+/* misc */
+.grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: 12%;
+  margin-bottom: 5%;
+}
+.signup {
+  background-color: var(--three);
+}
 
-
+.body-title {
+  margin-bottom: 20px;
+}
 
 /* .row {
   display: flex;
@@ -217,11 +400,22 @@ body {
   vertical-align: middle;
 } */
 
-.grid {
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(3, 1fr);
-  margin-left: 12%;
-  margin-bottom: 5%;
-}
+/* screens */
+@media screen and (max-width: 600px) {
+  .list-container .card
+   {
+     width: 150px;
+  }
+
+  .planet-img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .age-calculator {
+    text-align: center;
+    margin-left: 90px;
+  }
+  
+} 
 
