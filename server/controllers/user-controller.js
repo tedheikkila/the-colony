@@ -4,9 +4,8 @@ const { User, Post, Colony } = require('../models');
 const { signToken } = require('../utils/auth');
 
 module.exports = {
-  // get single user by either their id or username
-  async getposts({ params }, res) {
-    const posts = await Post.findAll({});
+  async getposts(req, res) {
+    const posts = await Post.find({});
 
     if (!posts) {
       return res.status(400).json({ message: 'Cannot find posts' });
@@ -46,7 +45,6 @@ module.exports = {
     }
     const token = signToken(user);
     res.json({ token, user });
-    console.log(token);
   },
   // login user, sign token, and send back (client/src/components/LoginForm.js)
   async login({ body }, res) {
@@ -64,7 +62,22 @@ module.exports = {
     res.json({ token, user });
   },
 
-  async createPost({user, body}, res) {
+  async createPost({body}, res) {
+    // console.log("create post route")
+    try {
+      const createdPost = await Post.create( body )
+      if (!createdPost) {
+        return res.status(400).json({ message: 'Post not created' });
+      };
+      return res.json(createdPost);
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+    }
+  },
+
+  async addPostToUser(req, res) {
+    console.log(req)
     try {
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },

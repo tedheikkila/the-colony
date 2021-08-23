@@ -11,7 +11,7 @@ export const getMe = (token) => {
 };
 
 export const getFeed = () => {
-  return fetch('/api/feed', {
+  return fetch('/api/users/feed', {
   headers: {
     'Content-Type': 'application/json',
   },
@@ -33,6 +33,24 @@ export const createUser = (userData) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(userData),
+  });
+};
+export const createPost = (postData) => {
+  return fetch('/api/users/feed', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  });
+};
+export const addPostToUser = (data) => {
+  return fetch('/api/users', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    }, 
+    body: JSON.stringify(data),
   });
 };
 

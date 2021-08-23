@@ -6,7 +6,7 @@ import Auth from '../utils/auth';
 
 const SignupForm = () => {
   // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', city: '' });
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
@@ -46,6 +46,7 @@ const SignupForm = () => {
       username: '',
       email: '',
       password: '',
+      city: '',
     });
   };
 
@@ -96,8 +97,21 @@ const SignupForm = () => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor='City'>City</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='Your city'
+            name='city'
+            onChange={handleInputChange}
+            value={userFormData.city}
+            required
+          />
+          <Form.Control.Feedback type='invalid'>city is required!</Form.Control.Feedback>
+        </Form.Group>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={!(userFormData.username && userFormData.email && userFormData.password && userFormData.city)}
           type='submit'
           variant='success'
           id="t-signup-modal-btn">
