@@ -62,12 +62,17 @@ function RoverProfile() {
                             <img alt="Selfie" className="mr-3 mainpic border" src="./assets/mainselfie.jpg" width="400" height="300" />
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4" id="mars-stats">
                         <div className="card stats border">
-                            <h5 className="card-header">Mars Rover Stats</h5>
+                            <h5 className="card-header">Mars Rover Perserverance</h5>
                             <div className="card-body">
-                                <p className="card-text">
-                                    First landing: July 4th, 1997 (Pathfinder)
+                                <p className="card-text">Mission: exploring Jezero crater</p>
+                                <p className="card-text">First landing: Feb 18th, 2021</p>
+                                <p className="card-text">Weight on Earth: 2,260 lbs</p>
+                                <p className="card-text">Features: 
+                                    <li>Generates heat from plutonium</li>
+                                    <li>Assesses minerals on surface</li>
+                                    <li>Advanced camera system</li>
                                 </p>
                             </div>
                         </div>

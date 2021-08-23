@@ -75,27 +75,51 @@
   margin-top: 350px;
 }
 
+#post-card {
+  background-color: var(--one);
+  width: 80%;
+  border: solid 4px var(--three);
+  margin: 3%;
+  margin-left: 0%;
+  border-radius: 20px;
+}
+
 .post-title {
-  width: 100%;
+  width: 80%;
   text-indent: 20px;
   height: 35px;
+  margin-top: 30px
 }
 
-.post-text {
-  width: 100%;
+#post-text {
+  width: 80%;
   text-indent: 20px;
   height: 100px;
-}
-
-#submit-post {
-  width: 100%;
-  background-color: var(--two);
-  border: none;
   margin-top: -10px
 }
 
-#submit-post:hover {
+.post-creator {
+  margin-left: 70%;
+  margin-top: -5%;
+}
+
+.post-location {
+  text-indent: 15px;
+}
+
+.post-content {
+  text-indent: 50px;
+}
+
+#submit-post {
+  width: 20%;
   background-color: var(--three);
+  border: none;
+  margin-top: -120px
+}
+
+#submit-post:hover {
+  background-color: var(--four);
 }
 
 .list-container .card {
@@ -112,12 +136,12 @@
   padding: 10px;
   margin-left: 40px;
   margin-top: 20px;
-  background-color: var(--two);
+  background-color: var(--three);
   border: none
 }
 
 .city-feed-btn:hover {
-  background-color: var(--three);
+  background-color: var(--four);
 }
 
 .feeds-sidebar {
@@ -127,6 +151,9 @@
 }
 
 /* rover page */ 
+#mars-stats {
+  margin-bottom: 30px;
+}
 
 body {
   margin: none;
@@ -187,12 +214,10 @@ body {
 }
 
 .stats {
-  padding-bottom: 100px;
+  padding-bottom: 5px;
   margin-right: 5%;
   border-radius: 5%;
 }
-
-
 
 /* user profile */
 #profile-alert {
