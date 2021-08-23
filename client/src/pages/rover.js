@@ -71,7 +71,7 @@ function RoverProfile() {
                                 <p className="card-text">Weight on Earth: 2,260 lbs</p>
                                 <p className="card-text">Features: 
                                     <li>Generates heat from plutonium</li>
-                                    <li>Assesses minerals on Mars surface</li>
+                                    <li>Assesses minerals on surface</li>
                                     <li>Advanced camera system</li>
                                 </p>
                             </div>
