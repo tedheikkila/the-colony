@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const commentSchema = require('./Comment')
 
 const postSchema = new Schema({
@@ -11,6 +11,12 @@ const postSchema = new Schema({
     type: String,
     required: true,
   },
+  city: {
+    type: String,
+  },
+  name: {
+    type: String,
+  },
   date: { 
     type: Date, 
     default: Date.now
@@ -21,4 +27,6 @@ const postSchema = new Schema({
 });
 
 
-module.exports = postSchema;
+const Post = model('Post', postSchema);
+
+module.exports = Post;
