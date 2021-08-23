@@ -55,12 +55,7 @@ function RoverProfile() {
                 <div className="row justify-content-center">
                     <div className="col-md-4">
                         <div className="media planet">
-                            <img className="mr-2 round border" alt="Mars" src="./assets/mars.jpg" />
-                        </div>
-                    </div>
-                    <div className="col-md-4 mainpic">
-                        <div className="media">
-                            <img alt="Selfie" className="mr-3 mainpic border" src="./assets/mainselfie.jpg" width="400" height="300" />
+                            <img className="mr-2 round border" alt="Mars" src="./assets/mars.jpg"/>
                         </div>
                     </div>
                     <div className="col-md-4" id="mars-stats">
@@ -78,16 +73,20 @@ function RoverProfile() {
                             </div>
                         </div>
                     </div>
+                    <div className="col-md-4 mainpic">
+                        <div className="media">
+                            <img alt="Selfie" className="mr-3 mainpic border" src="./assets/mainselfie.jpg" width="300" height="300" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>
-                <div className="grid" id="imageDiv">
-
-                    <img alt="Mars" width="200" height="200" src="./assets/images/mars.png" />
+                <div className="grid justify-content-center" id="imageDiv">
                     <img alt="Mars" src="./assets/ripples.jpg" width="200" height="200" />
                     <img alt="Mars" src="./assets/meteorite.jpg" width="200" height="200" />
                     <img alt="Mars" src="./assets/tracks.jpg" width="200" height="200" />
                     <img alt="Mars" src="./assets/crystals.jpg" width="200" height="200" />
+                    <img alt="Mars" width="200" height="200" src="./assets/images/mars.png" />
                     <img alt="Mars" src="./assets/rock.jpg" width="200" height="200" />
                     <img alt="Mars" src="./assets/portrait.jpg" width="200" height="200" />
                     <img alt="Mars" src="./assets/mountsharp.jpg" width="200" height="200" />
