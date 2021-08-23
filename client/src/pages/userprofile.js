@@ -13,8 +13,10 @@ const UserProfile = () => {
   const [planet, setPlanet] = useState('Mercury');
   const [zodiac, setZodiac] = useState('Aries');
   const [showAlert, setShowAlert] = useState(false);
-  const [relAge, setRelAge] = useState({ age: ''});
-
+  const [relAge, setRelAge] = useState('');
+  const [relWeight, setRelWeight] = useState('');
+  const [marsAge, setMarsAge] = useState('0');
+  const [marsWeight, setMarsWeight] = useState('0');
 
   // weather api call
   const getWeather = async () => {
@@ -109,7 +111,7 @@ const UserProfile = () => {
   function getPlanetTitle() {
     let storedPlanet = JSON.parse(localStorage.getItem("planet"));
     if (storedPlanet === null) {
-      return "Space drifter"
+      return "Astronaut"
     } else
       var userPlanet = storedPlanet.charAt(0).toUpperCase() + storedPlanet.slice(1);
     return userPlanet
@@ -263,22 +265,27 @@ const UserProfile = () => {
   }
   getUserAge()
 
-  // function calcRelAge(relAge) {
-  //   console.log(relAge)
-  //   let marsAge = relAge * 0.52 
-  //   // console.log(marsAge)
-  // } 
+  
+  const handleRelAge = (e) => {
+    const { target } = e;
+    const inputValue = target.value;
 
-  // const handleRelAge = (e) => {
-  //   const { name, value } = e.target;
+    setRelAge(inputValue);
 
-  //   console.log(value)
+    let marsAge = Math.round(inputValue * 0.52)
 
-  // };
+    setMarsAge(`${marsAge} years`)
+  };
 
-  const handleRelAge = (event) => {
-    const { name, value } = event.target;
-    setRelAge({ ...relAge, [name]: value });
+  const handleRelWeight = (e) => {
+    const { target } = e;
+    const inputValue = target.value;
+
+    setRelWeight(inputValue);
+
+    let marsWeight = Math.round(inputValue * 0.38)
+
+    setMarsWeight(`${marsWeight} lbs`)
   };
 
   return (
@@ -319,7 +326,7 @@ const UserProfile = () => {
             id="dropdown-menu-align-left"
             onSelect={handlePlanet}
           >
-            <Dropdown.Item eventKey="space drifter">Space drifter</Dropdown.Item>
+            <Dropdown.Item eventKey="astronaut">Astronaut</Dropdown.Item>
             <Dropdown.Item eventKey="mercury">Mercury</Dropdown.Item>
             <Dropdown.Item eventKey="venus">Venus</Dropdown.Item>
             <Dropdown.Item eventKey="earth">Earth</Dropdown.Item>
@@ -377,18 +384,33 @@ const UserProfile = () => {
         </Card>
       </CardGroup>
 
-      <Form className="age-calculator">
+      <Form className="form age-calculator">
         <input
           type="number"
-          value={relAge.age}
+          value={relAge}
           onChange={handleRelAge}
           id="rel-age-input"
+          name="relAge"
+          placeholder="Type your age"
         />
-        <Button variant="outline-secondary" id="button-addon1" className="rel-age-btn" >
-            Calculate age on Mars
+        <Button variant="outline-secondary" id="button-addon1" className="rel-age-btn">
+            Martian age = {marsAge}
         </Button>
       </Form>
 
+      <Form className="age-calculator">
+        <input
+          type="number"
+          value={relWeight}
+          onChange={handleRelWeight}
+          id="rel-age-input"
+          name="relWeight"
+          placeholder="Type your weight, lbs"
+        />
+        <Button variant="outline-secondary" id="button-addon1" className="rel-age-btn">
+            Martian weight = {marsWeight}
+        </Button>
+      </Form>
     </>
   );
 }
