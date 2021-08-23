@@ -107,8 +107,8 @@ const Feed = () => {
             </ul>
           </div>
         </Container>
-        <Container className="feed-container col-8">
-          <h2 className="the-feed">The Feed</h2>
+        <Container className="feed-container col-8 ">
+          <h2 className="the-feed">Feed</h2>
           <Form className="" onSubmit={handleFormSubmit}>
             <Form.Group className="post-title">
               <Form.Control
@@ -121,7 +121,7 @@ const Feed = () => {
               />
             </Form.Group>
 
-            <Form.Group className="post-title">
+            <Form.Group id="post-text">
               <Form.Control
                 type='text'
                 placeholder='text Content'
@@ -138,18 +138,19 @@ const Feed = () => {
                 disabled={!(postFormData.content && postFormData.title)}
                 type='submit'
                 variant='success'
-                id="t-login-modal-btn">
+                id="submit-post">
                 Post
               </Button>
             </Form.Group>
           </Form>
           {feed.map((post) => {
             return (
-              <Card key={post._id}>
+              <Card key={post._id} id="post-card">
                 <Card.Body>
                   <Card.Title>{post.title}</Card.Title>
-                  <Card.Text>location:{post.city}  created by:{post.name}</Card.Text>
-                  <Card.Text>{post.content}</Card.Text>
+                  <Card.Text className="post-creator">created by: <span id="bold-name">{post.name}</span></Card.Text>
+                  <Card.Text className="post-location">location: {post.city}</Card.Text>
+                  <Card.Text className="post-content">{post.content}</Card.Text>
                 </Card.Body>
               </Card>
             )
